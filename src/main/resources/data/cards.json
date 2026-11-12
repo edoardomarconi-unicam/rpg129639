@@ -1,5 +1,21 @@
+[
 {
+  "type": "with-effect",
   "name": "tizio",
   "role" : "mercante",
-  "quest": "Vieni con me a vendere?"
+  "quest": "Vieni con me a vendere?",
+  "parameters":
+    {
+      "health": -5,
+      "education": -7,
+      "fear": 0,
+      "brotherhood": 0
+    }
+},
+{
+  "type": "no-effect",
+  "name": "mario",
+  "role": "amico",
+  "quest": "Andiamo a giocare!"
 }
+]

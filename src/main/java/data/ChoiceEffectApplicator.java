@@ -1,3 +1,5 @@
+package data;
+
 import players.Npc;
 import players.NpcWithEffect;
 import players.Parameters;
