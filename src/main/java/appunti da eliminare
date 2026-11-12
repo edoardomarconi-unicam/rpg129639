@@ -2,6 +2,8 @@ main che gestisce il flusso delle carte --> attuatore dell'effetto (players.User
 
 l'actuator prende lo user e modifica i singoli parametri dello user con il change all di parameter. Prendee i parametri da parameters di npc.
 
+
+
 Cosa implementate:
 - NPC con effetti e senza effetti
 - User

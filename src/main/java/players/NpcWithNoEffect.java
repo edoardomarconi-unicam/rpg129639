@@ -5,6 +5,9 @@ public class NpcWithNoEffect extends Npc{
         super(name, role);
     }
 
+    /*TODO implementare nuova eccezione che riconosca quando
+            quando npc non ha nessun effetto sui parametri dello user
+     */
     public Parameters getParameters() {
         return null;
     }
