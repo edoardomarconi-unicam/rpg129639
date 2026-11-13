@@ -1,9 +1,9 @@
-package data;
+package it.unicam.rpg.model.data;
 
-import players.Npc;
-import players.NpcWithEffect;
-import players.Parameters;
-import players.User;
+import it.unicam.rpg.model.players.Npc;
+import it.unicam.rpg.model.players.NpcWithEffect;
+import it.unicam.rpg.model.players.Parameters;
+import it.unicam.rpg.model.players.User;
 
 public class ChoiceEffectApplicator {
 

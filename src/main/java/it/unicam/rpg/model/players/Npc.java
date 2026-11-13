@@ -1,6 +1,4 @@
-package players;
-
-import com.google.gson.Gson;
+package it.unicam.rpg.model.players;
 
 import java.io.Serializable;
 

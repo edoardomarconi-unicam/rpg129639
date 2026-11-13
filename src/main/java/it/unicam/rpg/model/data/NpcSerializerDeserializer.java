@@ -1,9 +1,9 @@
-package data;
+package it.unicam.rpg.model.data;
 
 import com.google.gson.*;
-import players.Npc;
-import players.NpcWithEffect;
-import players.NpcWithNoEffect;
+import it.unicam.rpg.model.players.Npc;
+import it.unicam.rpg.model.players.NpcWithEffect;
+import it.unicam.rpg.model.players.NpcWithNoEffect;
 
 import java.lang.reflect.Type;
 

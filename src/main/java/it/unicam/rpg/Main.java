@@ -1,7 +1,9 @@
-import data.CardLoader;
-import data.ChoiceEffectApplicator;
-import players.Npc;
-import players.User;
+package it.unicam.rpg;
+
+import it.unicam.rpg.model.data.CardLoader;
+import it.unicam.rpg.model.data.ChoiceEffectApplicator;
+import it.unicam.rpg.model.players.Npc;
+import it.unicam.rpg.model.players.User;
 
 import java.util.List;
 

@@ -1,16 +1,13 @@
-package data;
+package it.unicam.rpg.model.data;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import players.Npc;
-import players.NpcWithEffect;
+import it.unicam.rpg.model.players.Npc;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CardLoader {

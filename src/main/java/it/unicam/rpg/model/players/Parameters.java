@@ -1,4 +1,4 @@
-package players;
+package it.unicam.rpg.model.players;
 
 public class Parameters {
     /*all the parameters must be >= 0 e <=100*/

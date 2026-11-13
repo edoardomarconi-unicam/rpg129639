@@ -1,4 +1,4 @@
-package players;
+package it.unicam.rpg.model.players;
 
 public abstract class Player {
     private String name;

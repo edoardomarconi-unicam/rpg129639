@@ -1,4 +1,4 @@
-package players;
+package it.unicam.rpg.model.players;
 
 public class User extends Player {
     private Parameters parameters;
