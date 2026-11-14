@@ -3,8 +3,8 @@ package it.unicam.rpg.model.players;
 public class NpcWithEffect extends Npc{
     private Parameters parameters;
 
-    public NpcWithEffect(String name, String role) {
-        super(name, role);
+    public NpcWithEffect(String name, String role, String quest) {
+        super(name, role, quest);
         parameters = new Parameters();
     }
 

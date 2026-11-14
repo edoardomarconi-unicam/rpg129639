@@ -1,0 +1,37 @@
+package it.unicam.rpg.model;
+
+import java.util.Map;
+
+public class Choice {
+
+    private final String label;
+    private final Map<ParameterType, Integer> effects;
+
+    // choice di una card con effetti
+    public Choice(String label, Map<ParameterType, Integer> effects) {
+        this.label = label;
+        this.effects = (effects == null) ? Map.of() : Map.copyOf(effects);
+    }
+
+    // choice di una card senza effetti
+    public Choice(String label) {
+        this(label, Map.of());
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public Map<ParameterType, Integer> getEffects() {
+        return effects;
+    }
+
+    public boolean hasEffects() {
+        return !effects.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        return "Choice{label='" + label + "', effects=" + effects + "}";
+    }
+}

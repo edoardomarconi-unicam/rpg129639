@@ -3,8 +3,9 @@ package it.unicam.rpg.model;
 import java.util.ArrayList;
 import java.util.List;
 import it.unicam.rpg.model.players.*;
+//TODO finire implementazione Game
 public class Game {
-    private List<GameObserver> observers = new ArrayList<GameObserver>();
+    /*private List<GameObserver> observers = new ArrayList<GameObserver>();
     private ChoiceEffectApplicator effectApplicator = new ChoiceEffectApplicator();
 
     public void addObserver(GameObserver observer) {
@@ -20,7 +21,6 @@ public class Game {
             }
         }
 
-    }
-
-
+    }*/
 }
+

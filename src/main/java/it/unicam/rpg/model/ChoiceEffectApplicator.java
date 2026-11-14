@@ -5,8 +5,9 @@ import it.unicam.rpg.model.players.NpcWithEffect;
 import it.unicam.rpg.model.players.Parameters;
 import it.unicam.rpg.model.players.User;
 
+//TODO sistemare ChoiceEffectApplicator
 public class ChoiceEffectApplicator {
-
+/*
     public boolean application(User user, Npc npc, Direction direction){
         if(npc instanceof NpcWithEffect){
             Parameters userParameters = user.getParameters();
@@ -31,5 +32,5 @@ public class ChoiceEffectApplicator {
         }
 
         return false;
-    }
+    }*/
 }

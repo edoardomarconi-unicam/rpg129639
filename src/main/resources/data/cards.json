@@ -4,11 +4,13 @@
     "name": "Abebe",
     "role": "lustrascarpe",
     "quest": "Mi aiuti a lucidare le scarpe dei turisti alla stazione? Dividiamo la paga.",
-    "parameters": {
-      "health": -2,
-      "education": -3,
-      "fear": 0,
-      "brotherhood": 5
+    "left": {
+      "label": "Vado per conto mio",
+      "effects": { "brotherhood": -3 }
+    },
+    "right": {
+      "label": "Ti aiuto",
+      "effects": { "health": -2, "education": -3, "brotherhood": 5 }
     }
   },
   {
@@ -16,11 +18,13 @@
     "name": "Suor Tsehay",
     "role": "suora",
     "quest": "Domani apriamo una classe al centro. Vuoi venire a imparare a leggere?",
-    "parameters": {
-      "health": 2,
-      "education": 10,
-      "fear": -3,
-      "brotherhood": 0
+    "left": {
+      "label": "Non ho tempo",
+      "effects": { "education": -2 }
+    },
+    "right": {
+      "label": "Ci vengo",
+      "effects": { "health": 2, "education": 10, "fear": -3 }
     }
   },
   {
@@ -28,29 +32,35 @@
     "name": "Dawit",
     "role": "capobanda",
     "quest": "Se vuoi stare con noi devi prendere il portafoglio a quel signore.",
-    "parameters": {
-      "health": 0,
-      "education": -5,
-      "fear": 8,
-      "brotherhood": 6
+    "left": {
+      "label": "Non lo faccio",
+      "effects": { "fear": 4, "brotherhood": -6 }
+    },
+    "right": {
+      "label": "Lo prendo",
+      "effects": { "education": -5, "fear": 8, "brotherhood": 6 }
     }
   },
   {
     "type": "no-effect",
     "name": "Hana",
     "role": "amica",
-    "quest": "Guarda, stanno passando gli aquiloni sopra il mercato!"
+    "quest": "Guarda, stanno passando gli aquiloni sopra il mercato!",
+    "left": { "label": "Non ora" },
+    "right": { "label": "Guardiamoli!" }
   },
   {
     "type": "with-effect",
     "name": "Ato Girma",
     "role": "venditore di injera",
     "quest": "Ti do un pezzo di pane se mi scarichi i sacchi dal camion.",
-    "parameters": {
-      "health": 4,
-      "education": 0,
-      "fear": 0,
-      "brotherhood": -1
+    "left": {
+      "label": "Sono troppo stanco",
+      "effects": { "health": -2 }
+    },
+    "right": {
+      "label": "Scarico i sacchi",
+      "effects": { "health": 4, "brotherhood": -1 }
     }
   },
   {
@@ -58,11 +68,13 @@
     "name": "Yonas",
     "role": "ragazzo più grande",
     "quest": "Prova questa colla, ti fa passare la fame.",
-    "parameters": {
-      "health": -10,
-      "education": -4,
-      "fear": -5,
-      "brotherhood": 3
+    "left": {
+      "label": "No, grazie",
+      "effects": { "health": -2, "brotherhood": -2 }
+    },
+    "right": {
+      "label": "La provo",
+      "effects": { "health": -10, "education": -4, "fear": -5, "brotherhood": 3 }
     }
   },
   {
@@ -70,29 +82,35 @@
     "name": "Fra Matteo",
     "role": "missionario",
     "quest": "Allo Smiling Children Town c'è un letto libero. Vuoi venire a vedere?",
-    "parameters": {
-      "health": 8,
-      "education": 5,
-      "fear": -6,
-      "brotherhood": -2
+    "left": {
+      "label": "Resto in strada",
+      "effects": { "fear": 2, "brotherhood": 2 }
+    },
+    "right": {
+      "label": "Vengo a vedere",
+      "effects": { "health": 8, "education": 5, "fear": -6, "brotherhood": -2 }
     }
   },
   {
     "type": "no-effect",
     "name": "Selam",
     "role": "sorellina",
-    "quest": "Mi racconti di nuovo la storia della stella?"
+    "quest": "Mi racconti di nuovo la storia della stella?",
+    "left": { "label": "Non stasera" },
+    "right": { "label": "Certo" }
   },
   {
     "type": "with-effect",
     "name": "Agente Bekele",
     "role": "poliziotto",
     "quest": "Non puoi dormire qui. Sparisci o ti porto via.",
-    "parameters": {
-      "health": -1,
-      "education": 0,
-      "fear": 7,
-      "brotherhood": 0
+    "left": {
+      "label": "Resto qui",
+      "effects": { "health": -3, "fear": 10 }
+    },
+    "right": {
+      "label": "Me ne vado",
+      "effects": { "health": -1, "fear": 7 }
     }
   },
   {
@@ -100,11 +118,13 @@
     "name": "Meron",
     "role": "amica",
     "quest": "Ho trovato una coperta. Stanotte dormiamo insieme sotto il ponte?",
-    "parameters": {
-      "health": 3,
-      "education": 0,
-      "fear": -4,
-      "brotherhood": 7
+    "left": {
+      "label": "Preferisco stare solo",
+      "effects": { "fear": 3, "brotherhood": -3 }
+    },
+    "right": {
+      "label": "Dormiamo insieme",
+      "effects": { "health": 3, "fear": -4, "brotherhood": 7 }
     }
   },
   {
@@ -112,29 +132,35 @@
     "name": "Tesfaye",
     "role": "meccanico",
     "quest": "Mi serve un apprendista in officina. Niente paga, ma ti insegno il mestiere.",
-    "parameters": {
-      "health": -2,
-      "education": 6,
-      "fear": 0,
-      "brotherhood": -3
+    "left": {
+      "label": "Mi serve guadagnare",
+      "effects": { "brotherhood": 2 }
+    },
+    "right": {
+      "label": "Accetto",
+      "effects": { "health": -2, "education": 6, "brotherhood": -3 }
     }
   },
   {
     "type": "no-effect",
     "name": "Kidus",
     "role": "amico",
-    "quest": "Facciamo una partita a pallone con le bottiglie?"
+    "quest": "Facciamo una partita a pallone con le bottiglie?",
+    "left": { "label": "Un'altra volta" },
+    "right": { "label": "Giochiamo!" }
   },
   {
     "type": "with-effect",
     "name": "Signora Almaz",
     "role": "turista",
     "quest": "Tieni questi soldi, ma promettimi che ci compri da mangiare.",
-    "parameters": {
-      "health": 5,
-      "education": 0,
-      "fear": 0,
-      "brotherhood": 0
+    "left": {
+      "label": "Non li prendo",
+      "effects": { "health": -1 }
+    },
+    "right": {
+      "label": "Promesso",
+      "effects": { "health": 5 }
     }
   },
   {
@@ -142,11 +168,13 @@
     "name": "Dawit",
     "role": "capobanda",
     "quest": "Hai parlato con i frati? Qui chi se ne va non torna più.",
-    "parameters": {
-      "health": 0,
-      "education": 0,
-      "fear": 10,
-      "brotherhood": -10
+    "left": {
+      "label": "Resto con voi",
+      "effects": { "education": -2, "brotherhood": 4 }
+    },
+    "right": {
+      "label": "Me ne vado lo stesso",
+      "effects": { "fear": 10, "brotherhood": -10 }
     }
   },
   {
@@ -154,11 +182,13 @@
     "name": "Liya",
     "role": "infermiera",
     "quest": "Quella ferita è infetta. Vieni in ambulatorio, anche se c'è da aspettare.",
-    "parameters": {
-      "health": 9,
-      "education": 1,
-      "fear": 2,
-      "brotherhood": 0
+    "left": {
+      "label": "Non mi fido",
+      "effects": { "health": -4 }
+    },
+    "right": {
+      "label": "Vengo",
+      "effects": { "health": 9, "education": 1, "fear": 2 }
     }
   }
 ]

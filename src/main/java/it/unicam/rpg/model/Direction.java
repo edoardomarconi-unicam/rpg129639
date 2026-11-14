@@ -1,5 +1,8 @@
 package it.unicam.rpg.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public enum Direction {
-    LEFT,RIGHT
+    @SerializedName("left") LEFT,
+    @SerializedName("right") RIGHT;
 }

@@ -5,11 +5,19 @@ import it.unicam.rpg.model.ChoiceEffectApplicator;
 import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    /*public static void main(String[] args) {
-        User user = new User("Edoardo", "Bambino di strada");
+    public static void main(String[] args) {
+        List<Npc> npcs = CardLoader.LoadNpcs();
+        for(Npc n : npcs){
+            System.out.println("Destra: " + n.getRight().toString());
+            System.out.println("Sinistra: " + n.getLeft().toString());
+
+        }
+    }
+        /*User user = new User("Edoardo", "Bambino di strada");
         List<Npc> npc = CardLoader.LoadNpcs();
 
         for(Npc n : npc){

@@ -1,13 +1,30 @@
 package it.unicam.rpg.model.players;
 
+import it.unicam.rpg.model.ParameterType;
+
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
 public class Parameters {
+    private Map<ParameterType, Integer> values = new EnumMap<>(ParameterType.class);
+
+    //costruttore per inizializzare lo user
+    public Parameters() {
+        values.put(ParameterType.HEALTH, 50);
+        values.put(ParameterType.BROTHERHOOD, 50);
+        values.put(ParameterType.EDUCATION, 50);
+        values.put(ParameterType.FEAR, 50);
+    }
+
+
+
+
+
     /*all the parameters must be >= 0 e <=100*/
 
-    private int health;
+    /*private int health;
     private int education;
     private int fear;
     private int brotherhood;
@@ -55,7 +72,7 @@ public class Parameters {
         if(this.fear >= 100) lossParameters.add("Paura");
 
         return lossParameters;
-    }
+    }*/
 
 
 

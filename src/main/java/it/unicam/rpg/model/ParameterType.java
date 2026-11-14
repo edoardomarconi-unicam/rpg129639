@@ -3,7 +3,7 @@ package it.unicam.rpg.model;
 import com.google.gson.annotations.SerializedName;
 
 public enum ParameterType {
-    @SerializedName("brotherhood") BRROTHERHOOD("Legame con la vita di strada", 100, true),
+    @SerializedName("brotherhood") BROTHERHOOD("Legame con la vita di strada", 100, true),
     @SerializedName("fear") FEAR("Paura", 100, true),
     @SerializedName("health") HEALTH("Salute", 0, false),
     @SerializedName("education") EDUCATION("Istruzione", 0, false);
