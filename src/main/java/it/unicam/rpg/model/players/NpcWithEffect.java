@@ -14,4 +14,5 @@ public class NpcWithEffect extends Npc{
 
 
 
+
 }
