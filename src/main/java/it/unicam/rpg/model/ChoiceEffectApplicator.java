@@ -7,7 +7,7 @@ import it.unicam.rpg.model.players.User;
 
 public class ChoiceEffectApplicator {
 
-    public boolean application(User user, Npc npc){
+    public boolean application(User user, Npc npc, Direction direction){
         if(npc instanceof NpcWithEffect){
             Parameters userParameters = user.getParameters();
             Parameters npcParameters = ((NpcWithEffect)npc).getParameters();

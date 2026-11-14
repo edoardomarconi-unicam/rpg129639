@@ -1,5 +1,8 @@
 package it.unicam.rpg.model.players;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Parameters {
     /*all the parameters must be >= 0 e <=100*/
 
@@ -41,5 +44,18 @@ public class Parameters {
         this.fear = changeFear;
         this.brotherhood = changeBrotherhood;
     }
+
+    public List<String> lossReasons(){
+        List<String> lossParameters = new ArrayList<>();
+
+        if(this.brotherhood >= 100) lossParameters.add("Legame con la strada");
+        if(this.health <= 0) lossParameters.add("Salute");
+        if(this.education <= 0) lossParameters.add("Istruzione");
+        if(this.fear >= 100) lossParameters.add("Paura");
+
+        return lossParameters;
+    }
+
+
 
 }

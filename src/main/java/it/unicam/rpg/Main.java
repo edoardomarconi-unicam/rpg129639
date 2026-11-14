@@ -8,7 +8,7 @@ import it.unicam.rpg.model.players.User;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         User user = new User("Edoardo", "Bambino di strada");
         List<Npc> npc = CardLoader.LoadNpcs();
 
@@ -22,5 +22,5 @@ public class Main {
             applicator.application(user, n);
             System.out.println(user.getName() + " " + user.getRole() +  " " + user.getParameters().getHealth() + " " + user.getParameters().getEducation() + " " + user.getParameters().getFear() + " " + user.getParameters().getBrotherhood() + " " );
         }
-    }
+    }*/
 }
