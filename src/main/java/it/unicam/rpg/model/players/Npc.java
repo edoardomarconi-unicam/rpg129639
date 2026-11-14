@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 public abstract class Npc extends Player implements Serializable {
     private String quest;
-    public Choice right;
-    public Choice left;
+    private Choice right;
+    private Choice left;
 
     public Npc(String name, String role, String quest){
         super(name, role);

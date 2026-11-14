@@ -1,5 +1,6 @@
 package it.unicam.rpg;
 
+import it.unicam.rpg.model.Direction;
 import it.unicam.rpg.model.data.CardLoader;
 import it.unicam.rpg.model.ChoiceEffectApplicator;
 import it.unicam.rpg.model.players.Npc;
@@ -11,10 +12,16 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Npc> npcs = CardLoader.LoadNpcs();
+        User user = new User("Edoardo", "player");
+        ChoiceEffectApplicator applicator = new ChoiceEffectApplicator();
+
         for(Npc n : npcs){
             System.out.println("Destra: " + n.getRight().toString());
+            applicator.application(user, n, Direction.RIGHT);
+            System.out.println("Parametri utente: " + user.getParameters().toString());
             System.out.println("Sinistra: " + n.getLeft().toString());
-
+            applicator.application(user, n, Direction.LEFT);
+            System.out.println("Parametri utente: " + user.getParameters().toString());
         }
     }
         /*User user = new User("Edoardo", "Bambino di strada");

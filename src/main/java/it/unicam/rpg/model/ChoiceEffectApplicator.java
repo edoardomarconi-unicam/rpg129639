@@ -7,7 +7,19 @@ import it.unicam.rpg.model.players.User;
 
 //TODO sistemare ChoiceEffectApplicator
 public class ChoiceEffectApplicator {
-/*
+    public boolean application(User user, Npc npc, Direction direction) {
+        if (npc instanceof NpcWithEffect) {
+            if (direction == Direction.LEFT) {
+                user.getParameters().changeParameters(npc.getLeft().getEffects());
+            } else if (direction == Direction.RIGHT) {
+                user.getParameters().changeParameters(npc.getRight().getEffects());
+            }else throw new IllegalArgumentException("Direzione non riconosciuta");
+        }
+        return true;
+    }
+}
+
+    /*
     public boolean application(User user, Npc npc, Direction direction){
         if(npc instanceof NpcWithEffect){
             Parameters userParameters = user.getParameters();
@@ -33,4 +45,4 @@ public class ChoiceEffectApplicator {
 
         return false;
     }*/
-}
+

@@ -18,6 +18,22 @@ public class Parameters {
         values.put(ParameterType.FEAR, 50);
     }
 
+    public boolean changeParameters(Map<ParameterType, Integer> npcEffectValues){
+        boolean changed = false;
+        for(Map.Entry<ParameterType, Integer> entry : npcEffectValues.entrySet()){
+            if(values.containsKey(entry.getKey())){
+                values.put(entry.getKey(), values.get(entry.getKey()) + entry.getValue());
+                changed = true;
+            }
+        }
+        return changed;
+    }
+
+    @Override
+    public String toString() {
+        return "Parameters" + values;
+    }
+
 
 
 
