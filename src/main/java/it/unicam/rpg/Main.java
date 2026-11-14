@@ -1,9 +1,7 @@
 package it.unicam.rpg;
-import it.unicam.rpg.model.players.*;
-import it.unicam.rpg.model.data.*;
 
 import it.unicam.rpg.model.data.CardLoader;
-import it.unicam.rpg.model.data.ChoiceEffectApplicator;
+import it.unicam.rpg.model.ChoiceEffectApplicator;
 import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.User;
 

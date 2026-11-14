@@ -1,4 +1,4 @@
-package it.unicam.rpg.model.data;
+package it.unicam.rpg.model;
 
 import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.NpcWithEffect;

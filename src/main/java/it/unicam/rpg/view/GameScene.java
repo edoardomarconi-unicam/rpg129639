@@ -1,8 +1,10 @@
 package it.unicam.rpg.view;
 
-import it.unicam.rpg.model.players.Parameters;
+import it.unicam.rpg.model.GameObserver;
+import it.unicam.rpg.model.players.Npc;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.BorderPane;
@@ -13,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class GameScene extends BorderPane {
+    private final double HORIZONTAL_SPACING = 30;
 
     public GameScene() {
         setTopBar();
@@ -20,12 +23,13 @@ public class GameScene extends BorderPane {
         setBottom();
     }
 
+    public void loadedNewCard(Npc npc) {}
+
     public void setTopBar(){
-        double horizontalSpacing = 30;
         double verticalSpacing = 5;
 
         HBox topBar = new HBox(
-                horizontalSpacing,
+                HORIZONTAL_SPACING,
                 new VBox(
                         verticalSpacing,
                         new Label("Salute"),
@@ -51,7 +55,15 @@ public class GameScene extends BorderPane {
     }
 
     public void setCenter(){
-        StackPane centerCard = new StackPane();
+        double verticalSpacing = 30;
+
+
+        VBox center = new VBox();
+        center.setSpacing(verticalSpacing);
+        center.setAlignment(Pos.CENTER);
+
+        //cardPanel + variable text on card
+        StackPane cardPanel = new StackPane();
 
         Rectangle card = new Rectangle(300, 400);
         card.setFill(Color.FLORALWHITE);
@@ -61,8 +73,17 @@ public class GameScene extends BorderPane {
         Label cardText = new Label("Nome e ruolo");
         cardText.setTranslateY(card.getY() + 150);
 
-        centerCard.getChildren().addAll(card, cardText);
-        this.setCenter(centerCard);
+        cardPanel.getChildren().addAll(card, cardText);
+
+        //choose buttons
+        HBox buttons = new HBox(new Button("No"), new Button("Si"));
+        buttons.setAlignment(Pos.CENTER);
+        buttons.setSpacing(HORIZONTAL_SPACING);
+
+        //loads the stackPan inside the VBox in the center
+        center.getChildren().addAll(cardPanel,  buttons);
+
+        this.setCenter(center);
     }
 
     public void setBottom(){
