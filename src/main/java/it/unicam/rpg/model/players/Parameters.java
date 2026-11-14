@@ -2,6 +2,7 @@ package it.unicam.rpg.model.players;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Parameters {
     /*all the parameters must be >= 0 e <=100*/
