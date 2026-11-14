@@ -1,4 +1,6 @@
 package it.unicam.rpg;
+import it.unicam.rpg.model.players.*;
+import it.unicam.rpg.model.data.*;
 
 import it.unicam.rpg.model.data.CardLoader;
 import it.unicam.rpg.model.data.ChoiceEffectApplicator;
@@ -10,7 +12,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         User user = new User("Edoardo", "Bambino di strada");
-        List<Npc> npc = CardLoader.LoadNpcs();;
+        List<Npc> npc = CardLoader.LoadNpcs();
 
         for(Npc n : npc){
             System.out.println(n.getClass().getSimpleName().toString() + " " + n.getName() + " " + n.getRole());

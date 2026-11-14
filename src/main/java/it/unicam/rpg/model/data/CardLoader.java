@@ -16,7 +16,7 @@ public class CardLoader {
                                                     .create();
     public static final Gson gson = new Gson();
     public static List<Npc> LoadNpcs() {
-        InputStream inputStreamFromCardsFile = CardLoader.class.getResourceAsStream("cards.json");
+        InputStream inputStreamFromCardsFile = CardLoader.class.getResourceAsStream("/data/cards.json");
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamFromCardsFile));
 
         List<Npc> npc = GSON_BUILDER.fromJson(reader, new TypeToken<List<Npc>>() {}.getType());
