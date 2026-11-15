@@ -29,6 +29,8 @@ public class Parameters {
         return changed;
     }
 
+    public Map<ParameterType, Integer> getValues() {return values;}
+
     @Override
     public String toString() {
         return "Parameters" + values;

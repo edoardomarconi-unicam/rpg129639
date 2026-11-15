@@ -1,6 +1,7 @@
 package it.unicam.rpg;
 
 import it.unicam.rpg.model.Direction;
+import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.data.CardLoader;
 import it.unicam.rpg.model.ChoiceEffectApplicator;
 import it.unicam.rpg.model.players.Npc;
@@ -9,20 +10,29 @@ import it.unicam.rpg.model.players.User;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO capisci dov'è il problema di compilazione nella build
 public class Main {
     public static void main(String[] args) {
-        List<Npc> npcs = CardLoader.LoadNpcs();
         User user = new User("Edoardo", "player");
-        ChoiceEffectApplicator applicator = new ChoiceEffectApplicator();
+        Game game = new Game();
 
-        for(Npc n : npcs){
+        do{
+            System.out.println("Destra: " + game.npcs.getFirst().getRight().toString());
+            game.choose(Direction.RIGHT, user);
+            System.out.println("Parametri utente: " + user.getParameters().toString());
+            System.out.println("Sinistra: " + game.npcs.getFirst().getLeft().toString());
+            game.choose(Direction.LEFT, user);
+            System.out.println("Parametri utente: " + user.getParameters().toString());
+
+        }while(!game.npcs.isEmpty());
+        /*for(Npc n : npcs){
             System.out.println("Destra: " + n.getRight().toString());
             applicator.application(user, n, Direction.RIGHT);
             System.out.println("Parametri utente: " + user.getParameters().toString());
             System.out.println("Sinistra: " + n.getLeft().toString());
             applicator.application(user, n, Direction.LEFT);
             System.out.println("Parametri utente: " + user.getParameters().toString());
-        }
+        }*/
     }
         /*User user = new User("Edoardo", "Bambino di strada");
         List<Npc> npc = CardLoader.LoadNpcs();
