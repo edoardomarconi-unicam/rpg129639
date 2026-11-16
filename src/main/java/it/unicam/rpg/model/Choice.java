@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Choice {
 
-    private final String label;
+    private String label;
     private final Map<ParameterType, Integer> effects;
 
     // choice di una card con effetti

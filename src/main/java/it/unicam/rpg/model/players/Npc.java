@@ -16,6 +16,7 @@ public abstract class Npc extends Player implements Serializable {
 
     public Choice getRight() {return right;}
     public Choice getLeft() {return left;}
+    public String getQuest() {return quest;}
 
     public abstract Parameters getParameters();
 

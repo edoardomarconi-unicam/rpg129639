@@ -11,7 +11,13 @@ import it.unicam.rpg.model.players.*;
 public class Game {
     private List<GameObserver> observers = new ArrayList<GameObserver>();
     private ChoiceEffectApplicator effectApplicator = new ChoiceEffectApplicator();
-    public List<Npc> npcs = CardLoader.LoadNpcs();
+    private List<Npc> npcs;
+    private User user;
+
+    public Game(User user){
+        this.user = user;
+        npcs = CardLoader.LoadNpcs();
+    }
 
     public void addObserver(GameObserver observer) {
         observers.add(observer);
@@ -22,9 +28,10 @@ public class Game {
 
         //verifico il game over per terminazione carte
         if(npcs.isEmpty()){
-            observers.iterator().forEachRemaining(observer -> {observer.gameOver("Carte finite.");});
+            observers.forEach(observer -> {observer.gameOver("Carte finite.");});
         }else{
             effectApplicator.application(user, npcs.getFirst(), direction);
+            observers.forEach(observer -> {observer.parameterChanged(this.user);});
         }
 
         //verifico il gameOver per raggiungimento valori limite parametri
@@ -42,5 +49,9 @@ public class Game {
             observers.iterator().forEachRemaining(observer -> {observer.loadedNewCard(npcs.getFirst());});
 
     }
+
+    //getter
+    public  List<Npc> getNpcs(){return npcs;}
+    public User getUser(){return user;}
 }
 

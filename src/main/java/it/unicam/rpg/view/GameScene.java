@@ -2,6 +2,7 @@ package it.unicam.rpg.view;
 
 import it.unicam.rpg.model.GameObserver;
 import it.unicam.rpg.model.players.Npc;
+import it.unicam.rpg.model.players.User;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,18 +15,24 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class GameScene extends BorderPane {
+public class GameScene extends BorderPane implements GameObserver {
     private final double HORIZONTAL_SPACING = 30;
+    User user;
+    Npc npcs;
 
-    public GameScene() {
-        setTopBar();
-        setCenter();
-        setBottom();
+    public GameScene(User user, Npc npc) {
+        this.user = user;
+        this.npcs = npc;
+
+        setTopBar(user);
+        setCenter(npc);
+
+        String npcName = npc.getName();
+        String npcRole = npc.getRole();
+        setBottom(npcName, npcRole);
     }
 
-    public void loadedNewCard(Npc npc) {}
-
-    public void setTopBar(){
+    public void setTopBar(User user){
         double verticalSpacing = 5;
 
         HBox topBar = new HBox(
@@ -33,60 +40,61 @@ public class GameScene extends BorderPane {
                 new VBox(
                         verticalSpacing,
                         new Label("Salute"),
-                        new ProgressBar()
+                        new ProgressBar(user.getHealth())
                 ),
                 new VBox(
                         verticalSpacing,
                         new Label("Istruzione"),
-                        new ProgressBar()
+                        new ProgressBar(user.getEducation())
                 ),
                 new VBox(
                         verticalSpacing,
                         new Label("Paura"),
-                        new ProgressBar()
+                        new ProgressBar(user.getFear())
                 ),
                 new VBox(
                         verticalSpacing,
                         new Label("Fratellanza"),
-                        new ProgressBar()
+                        new ProgressBar(user.getBrotherhood())
                 ));
         topBar.setAlignment(Pos.CENTER);
         this.setTop(topBar);
     }
 
-    public void setCenter(){
+    public void setCenter(Npc npc){
         double verticalSpacing = 30;
 
-
-        VBox center = new VBox();
-        center.setSpacing(verticalSpacing);
-        center.setAlignment(Pos.CENTER);
-
-        //cardPanel + variable text on card
-        StackPane cardPanel = new StackPane();
+        //StackPane for card+label
+        StackPane cardLabel = new StackPane();
+        cardLabel.setAlignment(Pos.CENTER);
 
         Rectangle card = new Rectangle(300, 400);
         card.setFill(Color.FLORALWHITE);
         card.setArcWidth(20);
         card.setArcHeight(20);
 
-        Label cardText = new Label("Nome e ruolo");
+        String questLabel = npc.getQuest();
+        Label cardText = new Label(questLabel);
         cardText.setTranslateY(card.getY() + 150);
 
-        cardPanel.getChildren().addAll(card, cardText);
+        cardLabel.getChildren().addAll(card, cardText);
+
+        //card + label + buttons VBox
+        VBox cardLabelButtons = new VBox();
 
         //choose buttons
-        HBox buttons = new HBox(new Button("No"), new Button("Si"));
+        String npcLeftAnswer = npc.getLeft().getLabel();
+        String npcRightAnswer = npc.getRight().getLabel();
+        HBox buttons = new HBox(new Button(npcLeftAnswer), new Button(npcRightAnswer));
         buttons.setAlignment(Pos.CENTER);
         buttons.setSpacing(HORIZONTAL_SPACING);
 
-        //loads the stackPan inside the VBox in the center
-        center.getChildren().addAll(cardPanel,  buttons);
+        cardLabelButtons.getChildren().addAll(cardLabel,  buttons);
 
-        this.setCenter(center);
+        this.setCenter(cardLabelButtons);
     }
 
-    public void setBottom(){
+    public void setBottom(String npcName, String role){
         double padding = 40;
 
         HBox bottom = new HBox();
@@ -101,6 +109,15 @@ public class GameScene extends BorderPane {
         bottom.getChildren().addAll(bottomText);
         this.setBottom(bottom);
     }
+
+    public void parameterChanged(User user) {
+
+    }
+
+    public void loadedNewCard(Npc npc) {}
+
+    public void gameOver(String reason){}
+
 
 
 }

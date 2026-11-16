@@ -10,11 +10,10 @@ import it.unicam.rpg.model.players.User;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO capisci dov'è il problema di compilazione nella build
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         User user = new User("Edoardo", "player");
-        Game game = new Game();
+        Game game = new Game(user);
 
         do{
             System.out.println("Destra: " + game.npcs.getFirst().getRight().toString());
@@ -32,8 +31,8 @@ public class Main {
             System.out.println("Sinistra: " + n.getLeft().toString());
             applicator.application(user, n, Direction.LEFT);
             System.out.println("Parametri utente: " + user.getParameters().toString());
-        }*/
-    }
+        }
+    }*/
         /*User user = new User("Edoardo", "Bambino di strada");
         List<Npc> npc = CardLoader.LoadNpcs();
 
@@ -48,4 +47,5 @@ public class Main {
             System.out.println(user.getName() + " " + user.getRole() +  " " + user.getParameters().getHealth() + " " + user.getParameters().getEducation() + " " + user.getParameters().getFear() + " " + user.getParameters().getBrotherhood() + " " );
         }
     }*/
+
 }
