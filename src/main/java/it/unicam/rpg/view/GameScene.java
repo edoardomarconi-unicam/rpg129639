@@ -24,6 +24,10 @@ public class GameScene extends BorderPane implements GameObserver {
     Npc npcs;
     HBox topBar;
     Map<ParameterType, ProgressBar> progressBars = new EnumMap<ParameterType, ProgressBar>(ParameterType.class);
+    Rectangle card;
+    String questLabel;
+    String npcLeftAnswer;
+    String npcRightAnswer;
     private Label speakerName;
     private Label speakerRole;
 
@@ -74,7 +78,8 @@ public class GameScene extends BorderPane implements GameObserver {
         StackPane cardLabel = new StackPane();
         cardLabel.setAlignment(Pos.CENTER);
 
-        Rectangle card = new Rectangle();
+        //carta
+        card = new Rectangle();
         card.heightProperty().bind(this.heightProperty().multiply(0.55));
         card.widthProperty().bind(Bindings.min(
                 card.heightProperty().multiply(0.75),   // mantiene le proporzioni 3:4
@@ -83,7 +88,8 @@ public class GameScene extends BorderPane implements GameObserver {
         card.setArcWidth(20);
         card.setArcHeight(20);
 
-        String questLabel = npc.getQuest();
+        //domanda dell'NPC
+        questLabel = npc.getQuest();
         Label cardText = new Label(questLabel);
         cardText.setWrapText(true);// va a capo invece di uscire dalla carta
         cardText.setTextAlignment(TextAlignment.CENTER);
@@ -98,8 +104,8 @@ public class GameScene extends BorderPane implements GameObserver {
         VBox.setVgrow(cardLabel, Priority.ALWAYS);
 
         //choose buttons
-        String npcLeftAnswer = npc.getLeft().getLabel();
-        String npcRightAnswer = npc.getRight().getLabel();
+        npcLeftAnswer = npc.getLeft().getLabel();
+        npcRightAnswer = npc.getRight().getLabel();
         HBox buttons = new HBox(new Button(npcLeftAnswer), new Button(npcRightAnswer));
         buttons.setAlignment(Pos.CENTER);
         buttons.setSpacing(HORIZONTAL_SPACING);
@@ -135,21 +141,27 @@ public class GameScene extends BorderPane implements GameObserver {
     }
 
     //metodo di appoggio per aggiornare progressBars
-    public void progressBarsUpdate(){
+    public void progressBarsUpdate(User user){
         progressBars.get(ParameterType.HEALTH).setProgress(user.getHealth());
         progressBars.get(ParameterType.EDUCATION).setProgress(user.getEducation());
         progressBars.get(ParameterType.FEAR).setProgress(user.getFear());
         progressBars.get(ParameterType.BROTHERHOOD).setProgress(user.getBrotherhood());
     }
 
+    //metodo di appoggio per cambiare la carta.
+    public void loadNewCard(Npc npc){
+        questLabel = npc.getQuest();
+        npcLeftAnswer = npc.getLeft().getLabel();
+        npcRightAnswer = npc.getRight().getLabel();
+    }
 
     @Override
     public void parameterChanged(User user) {
-        progressBarsUpdate();
+        progressBarsUpdate(user);
     }
 
     public void loadedNewCard(Npc npc) {
-
+        loadNewCard(npc);
     }
 
     public void gameOver(String reason){}
