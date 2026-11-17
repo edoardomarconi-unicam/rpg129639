@@ -1,6 +1,7 @@
 package it.unicam.rpg.view;
 
 import it.unicam.rpg.model.GameObserver;
+import it.unicam.rpg.model.ParameterType;
 import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.User;
 import javafx.beans.binding.Bindings;
@@ -14,10 +15,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
 
+import java.util.EnumMap;
+import java.util.Map;
+
 public class GameScene extends BorderPane implements GameObserver {
     private final double HORIZONTAL_SPACING = 30;
     User user;
     Npc npcs;
+    HBox topBar;
+    Map<ParameterType, ProgressBar> progressBars = new EnumMap<ParameterType, ProgressBar>(ParameterType.class);
     private Label speakerName;
     private Label speakerRole;
 
@@ -35,11 +41,13 @@ public class GameScene extends BorderPane implements GameObserver {
     }
 
     //metodo di supporto per creare PrograssBar dei parametri
-    private VBox creaIndicatore(String nome, double valore) {
+    private VBox creaIndicatore(ParameterType type, String nome, double valore) {
         ProgressBar bar = new ProgressBar(valore / 100); //ProgressBar considera valori tra 0.0 e 1.0
         bar.setMaxWidth(Double.MAX_VALUE);              // la barra riempie la VBox
-        VBox box = new VBox(5, new Label(nome), bar);
-        box.setAlignment(Pos.CENTER);
+        progressBars.put(type, bar);
+
+        VBox box = new VBox(5, new Label(nome), bar); //inserisco l'oggetto bar perchè è lo stesso oggetto che ho
+        box.setAlignment(Pos.CENTER);                           //collegato alla Map progressBar, quindi bar == progressBar.get(type)
         HBox.setHgrow(box, Priority.ALWAYS);            // la VBox si divide lo spazio dell'HBox
         return box;
     }
@@ -47,12 +55,12 @@ public class GameScene extends BorderPane implements GameObserver {
     public void setTopBar(User user){
         double verticalSpacing = 5;
 
-        HBox topBar = new HBox(
+        topBar = new HBox(
                 HORIZONTAL_SPACING,
-                creaIndicatore("Salute", user.getHealth()),
-                creaIndicatore("Istruzione", user.getEducation()),
-                creaIndicatore("Paura", user.getFear()),
-                creaIndicatore("Legame con la strada", user.getBrotherhood())
+                creaIndicatore(ParameterType.HEALTH,"Salute", user.getHealth()),
+                creaIndicatore(ParameterType.EDUCATION, "Istruzione", user.getEducation()),
+                creaIndicatore(ParameterType.FEAR, "Paura", user.getFear()),
+                creaIndicatore(ParameterType.BROTHERHOOD, "Legame con la strada", user.getBrotherhood())
         );
 
         topBar.setAlignment(Pos.CENTER);
@@ -126,11 +134,23 @@ public class GameScene extends BorderPane implements GameObserver {
         this.setBottom(bottom);
     }
 
-    public void parameterChanged(User user) {
-
+    //metodo di appoggio per aggiornare progressBars
+    public void progressBarsUpdate(){
+        progressBars.get(ParameterType.HEALTH).setProgress(user.getHealth());
+        progressBars.get(ParameterType.EDUCATION).setProgress(user.getEducation());
+        progressBars.get(ParameterType.FEAR).setProgress(user.getFear());
+        progressBars.get(ParameterType.BROTHERHOOD).setProgress(user.getBrotherhood());
     }
 
-    public void loadedNewCard(Npc npc) {}
+
+    @Override
+    public void parameterChanged(User user) {
+        progressBarsUpdate();
+    }
+
+    public void loadedNewCard(Npc npc) {
+
+    }
 
     public void gameOver(String reason){}
 
