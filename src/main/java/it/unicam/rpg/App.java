@@ -25,8 +25,11 @@ public class App extends Application {
     public void start(Stage stage) {
         Label l = new Label("Insieme per i bambini");
         Scene scene = new Scene(new StackPane(l), 800, 600); //allineamento al centro di default
-        Scene gameScene = new Scene(new GameScene(game.getUser(), game.getNpcs().getFirst()), 800, 600);
+        Scene gameScene = new Scene(new GameScene(user, game.getNpcs().getFirst()), 800, 600);
+
         stage.setScene(gameScene);
+        stage.setMinWidth(800);
+        stage.setMinHeight(600);
         stage.show();
     }
 
