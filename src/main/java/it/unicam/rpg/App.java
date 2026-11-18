@@ -1,5 +1,6 @@
 package it.unicam.rpg;
 
+import it.unicam.rpg.controller.GameController;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.players.User;
 import it.unicam.rpg.view.GameScene;
@@ -24,8 +25,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         Label l = new Label("Insieme per i bambini");
-        Scene scene = new Scene(new StackPane(l), 800, 600); //allineamento al centro di default
-        Scene gameScene = new Scene(new GameScene(user, game.getNpcs().getFirst()), 800, 600);
+        GameScene gameView = new GameScene(user, game.getNpcs().getFirst());
+        Scene gameScene = new Scene(gameView, 800, 600);
+
+        GameController controller = new GameController(gameView, game);
 
         stage.setScene(gameScene);
         stage.setMinWidth(800);

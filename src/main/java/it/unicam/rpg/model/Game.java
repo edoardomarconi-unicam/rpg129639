@@ -32,22 +32,22 @@ public class Game {
         }else{
             effectApplicator.application(user, npcs.getFirst(), direction);
             observers.forEach(observer -> {observer.parameterChanged(this.user);});
+
+            //verifico il gameOver per raggiungimento valori limite parametri
+            for(Map.Entry<ParameterType, Integer> entry : userParameters.entrySet()) {
+                if(entry.getKey().lossValueReached(entry.getValue())) {
+                    observers.iterator().forEachRemaining(observer -> {observer.gameOver(entry.getKey().toString());});
+                };
+            }
+
+            //elimino l'attuale carta dalla Map
+            npcs.removeFirst();
+
+            //carico una nuova carta
+            if(!npcs.isEmpty())
+                observers.iterator().forEachRemaining(observer -> {observer.loadedNewCard(npcs.getFirst());});
+
         }
-
-        //verifico il gameOver per raggiungimento valori limite parametri
-        for(Map.Entry<ParameterType, Integer> entry : userParameters.entrySet()) {
-            if(entry.getKey().lossValueReached(entry.getValue())) {
-                observers.iterator().forEachRemaining(observer -> {observer.gameOver(entry.getKey().toString());});
-            };
-        }
-
-        //elimino l'attuale carta dalla Map
-        npcs.removeFirst();
-
-        //carico una nuova carta
-        if(!npcs.isEmpty())
-            observers.iterator().forEachRemaining(observer -> {observer.loadedNewCard(npcs.getFirst());});
-
     }
 
     //getter

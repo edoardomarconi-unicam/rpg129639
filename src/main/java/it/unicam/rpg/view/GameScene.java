@@ -30,6 +30,9 @@ public class GameScene extends BorderPane implements GameObserver {
     String npcRightAnswer;
     private Label speakerName;
     private Label speakerRole;
+    //creo delle azioni runnable, alle quali poi game asegnerà del codice
+    private Runnable onLeftClick = () -> {};
+    private Runnable onRightClick = () -> {};
 
     public GameScene(User user, Npc npc) {
         this.user = user;
@@ -106,7 +109,11 @@ public class GameScene extends BorderPane implements GameObserver {
         //choose buttons
         npcLeftAnswer = npc.getLeft().getLabel();
         npcRightAnswer = npc.getRight().getLabel();
-        HBox buttons = new HBox(new Button(npcLeftAnswer), new Button(npcRightAnswer));
+        Button leftButton =  new Button(npcLeftAnswer);
+        leftButton.setOnAction(e -> {onLeftClick.run();});
+        Button rightButton =   new Button(npcRightAnswer);
+        rightButton.setOnAction(e -> {onRightClick.run();});
+        HBox buttons = new HBox(leftButton, rightButton);
         buttons.setAlignment(Pos.CENTER);
         buttons.setSpacing(HORIZONTAL_SPACING);
 
@@ -140,19 +147,26 @@ public class GameScene extends BorderPane implements GameObserver {
         this.setBottom(bottom);
     }
 
+    public void setOnLeftChoice(Runnable onLeftClick){
+        this.onLeftClick = onLeftClick;
+    }
+    public void setOnRightChoice(Runnable onRightClick){
+        this.onRightClick = onRightClick;
+    }
+
     //metodo di appoggio per aggiornare progressBars
     public void progressBarsUpdate(User user){
-        progressBars.get(ParameterType.HEALTH).setProgress(user.getHealth());
-        progressBars.get(ParameterType.EDUCATION).setProgress(user.getEducation());
-        progressBars.get(ParameterType.FEAR).setProgress(user.getFear());
-        progressBars.get(ParameterType.BROTHERHOOD).setProgress(user.getBrotherhood());
+        progressBars.get(ParameterType.HEALTH).setProgress(user.getHealth()/100);
+        progressBars.get(ParameterType.EDUCATION).setProgress(user.getEducation()/100);
+        progressBars.get(ParameterType.FEAR).setProgress(user.getFear()/100);
+        progressBars.get(ParameterType.BROTHERHOOD).setProgress(user.getBrotherhood()/100);
     }
 
     //metodo di appoggio per cambiare la carta.
     public void loadNewCard(Npc npc){
-        questLabel = npc.getQuest();
-        npcLeftAnswer = npc.getLeft().getLabel();
-        npcRightAnswer = npc.getRight().getLabel();
+        setCenter(npc);
+        speakerName.setText(npc.getName());
+        speakerRole.setText(npc.getRole());
     }
 
     @Override
