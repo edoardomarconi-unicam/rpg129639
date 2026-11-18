@@ -28,7 +28,7 @@ public class App extends Application {
         GameScene gameView = new GameScene(user, game.getNpcs().getFirst());
         Scene gameScene = new Scene(gameView, 800, 600);
 
-        GameController controller = new GameController(gameView, game);
+        GameController controller = new GameController(gameView, game, gameScene);
 
         stage.setScene(gameScene);
         stage.setMinWidth(800);

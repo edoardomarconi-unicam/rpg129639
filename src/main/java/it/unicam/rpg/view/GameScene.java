@@ -178,8 +178,4 @@ public class GameScene extends BorderPane implements GameObserver {
         loadNewCard(npc);
     }
 
-    public void gameOver(String reason){}
-
-
-
 }

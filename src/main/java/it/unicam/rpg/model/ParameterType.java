@@ -27,8 +27,8 @@ public enum ParameterType {
 
     public boolean lossValueReached(int lossValue){
         if(this.afterLossValue)
-            return this.lossValue >= lossValue;
+            return lossValue >= this.lossValue;
         else
-            return this.lossValue <= lossValue;
+            return lossValue <= this.lossValue;
     }
 }

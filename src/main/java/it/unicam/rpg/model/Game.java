@@ -43,9 +43,12 @@ public class Game {
             //elimino l'attuale carta dalla Map
             npcs.removeFirst();
 
-            //carico una nuova carta
-            if(!npcs.isEmpty())
+            //carico una nuova carta e nel caso npcs sia vuoto, chiamo il gameOver()
+            if(!npcs.isEmpty()){
                 observers.iterator().forEachRemaining(observer -> {observer.loadedNewCard(npcs.getFirst());});
+            }else{
+                observers.forEach(observer -> {observer.gameOver("Carte finite.");});
+            }
 
         }
     }
