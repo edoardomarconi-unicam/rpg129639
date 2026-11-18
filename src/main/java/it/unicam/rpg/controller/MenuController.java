@@ -3,12 +3,12 @@ package it.unicam.rpg.controller;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.data.GameSaverReader;
 import it.unicam.rpg.model.players.User;
+import it.unicam.rpg.view.GameScene;
 import it.unicam.rpg.view.MainMenuScene;
 import it.unicam.rpg.view.PlayerDataInputScene;
 import javafx.scene.Scene;
 
 public class MenuController {
-    private Game game;
     private GameSaverReader gameSaverReader;
     private Scene scene;
     private MainMenuScene mainMenuScene;
@@ -18,7 +18,10 @@ public class MenuController {
         this.mainMenuScene = mainMenuScene;
 
         mainMenuScene.setOnContinueGame(() -> {
-            game = gameSaverReader.loadSavedGame();
+            Game game = gameSaverReader.loadSavedGame();
+            GameScene gameScene = new GameScene(game.getUser(), game.getNpcs().getFirst());
+            GameController gameController = new GameController(gameScene, game, scene);
+            scene.setRoot(gameScene);
         });
 
         mainMenuScene.setOnNewGame(() ->  {

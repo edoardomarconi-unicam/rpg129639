@@ -10,18 +10,23 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
 
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
-public class GameScene extends BorderPane implements GameObserver {
+public class GameScene extends StackPane implements GameObserver {
     private final double HORIZONTAL_SPACING = 30;
     User user;
     Npc npcs;
+    BorderPane root = new BorderPane();
+    StackPane pauseMenu;
     HBox topBar;
     Map<ParameterType, ProgressBar> progressBars = new EnumMap<ParameterType, ProgressBar>(ParameterType.class);
     Rectangle card;
@@ -33,6 +38,11 @@ public class GameScene extends BorderPane implements GameObserver {
     //creo delle azioni runnable, alle quali poi game asegnerà del codice
     private Runnable onLeftClick = () -> {};
     private Runnable onRightClick = () -> {};
+    private Runnable onSaveGame = () -> {};
+    private Runnable onSettings = () -> {};
+    private Runnable onMainMenu = () -> {};
+    private Label pauseMessage;
+
 
     public GameScene(User user, Npc npc) {
         this.user = user;
@@ -40,6 +50,18 @@ public class GameScene extends BorderPane implements GameObserver {
 
         setTopBar(user);
         setCenter(npc);
+
+        buildPauseMenu();
+        this.getChildren().addAll(root, pauseMenu);
+
+        //tasto esc apre e chiude il menu
+        this.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
+            if (e.getCode() == KeyCode.ESCAPE) {
+                if (pauseMenu.isVisible()) closePauseMenu();
+                else openPauseMenu();
+                e.consume();
+            }
+        });
 
         String npcName = npc.getName();
         String npcRole = npc.getRole();
@@ -61,7 +83,9 @@ public class GameScene extends BorderPane implements GameObserver {
 
     public void setTopBar(User user){
         double verticalSpacing = 5;
-
+        Button pauseButton = new Button("☰");
+        pauseButton.setStyle("-fx-font-size: 18px;");
+        pauseButton.setOnAction(e -> openPauseMenu());
         topBar = new HBox(
                 HORIZONTAL_SPACING,
                 creaIndicatore(ParameterType.HEALTH,"Salute", user.getHealth()),
@@ -72,7 +96,7 @@ public class GameScene extends BorderPane implements GameObserver {
 
         topBar.setAlignment(Pos.CENTER);
         topBar.setPadding(new Insets(HORIZONTAL_SPACING));
-        this.setTop(topBar);
+        root.setTop(topBar);
     }
 
     public void setCenter(Npc npc){
@@ -119,7 +143,7 @@ public class GameScene extends BorderPane implements GameObserver {
 
         cardLabelButtons.getChildren().addAll(cardLabel,  buttons);
 
-        this.setCenter(cardLabelButtons);
+        root.setCenter(cardLabelButtons);
     }
 
     public void setBottom(String npcName, String role){
@@ -144,7 +168,7 @@ public class GameScene extends BorderPane implements GameObserver {
         bottom.setAlignment(Pos.CENTER);
         bottom.setPadding(new Insets(padding));
 
-        this.setBottom(bottom);
+        root.setBottom(bottom);
     }
 
     public void setOnLeftChoice(Runnable onLeftClick){
@@ -167,6 +191,63 @@ public class GameScene extends BorderPane implements GameObserver {
         setCenter(npc);
         speakerName.setText(npc.getName());
         speakerRole.setText(npc.getRole());
+    }
+
+    private void buildPauseMenu() {
+        //titolo
+        Label title = new Label("Pausa");
+        title.setTextFill(Color.WHITE);
+        title.setStyle("-fx-font-weight: bold; -fx-font-size: 28px;");
+
+        //bottoni
+        Button resumeButton = new Button("Riprendi");
+        resumeButton.setOnAction(e -> closePauseMenu());
+
+        Button saveButton = new Button("Salva partita");
+        saveButton.setOnAction(e -> onSaveGame.run());
+
+        Button settingsButton = new Button("Impostazioni");
+        settingsButton.setOnAction(e -> onSettings.run());
+
+        Button mainMenuButton = new Button("Menù principale");
+        mainMenuButton.setOnAction(e -> onMainMenu.run());
+
+        VBox options = new VBox(12, resumeButton, saveButton, settingsButton, mainMenuButton);
+        options.setAlignment(Pos.CENTER);
+        for (Button button : List.of(resumeButton, saveButton, settingsButton, mainMenuButton)) {
+            button.setMaxWidth(Double.MAX_VALUE);
+            button.setStyle("-fx-font-size: 16px; -fx-padding: 10 20;");
+        }
+
+        //messaggio di conferma (es. "Partita salvata"), vuoto all'inizio
+        pauseMessage = new Label();
+        pauseMessage.setTextFill(Color.LIGHTGREEN);
+
+        //riquadro centrale
+        VBox panel = new VBox(25, title, options, pauseMessage);
+        panel.setAlignment(Pos.CENTER);
+        panel.setPadding(new Insets(30));
+        panel.setMaxSize(320, Region.USE_PREF_SIZE);    //non si allarga a tutta la finestra
+        panel.setStyle("-fx-background-color: #2d2d29; -fx-background-radius: 15;");
+
+        //sfondo scuro semitrasparente che copre tutta la partita
+        pauseMenu = new StackPane(panel);
+        pauseMenu.setStyle("-fx-background-color: rgba(0, 0, 0, 0.6);");
+        pauseMenu.setVisible(false);
+    }
+
+    public void openPauseMenu() {
+        pauseMessage.setText("");
+        pauseMenu.setVisible(true);
+    }
+
+    public void closePauseMenu() {
+        pauseMenu.setVisible(false);
+    }
+
+    //il controller lo chiama dopo il salvataggio per dare un riscontro
+    public void showPauseMessage(String message) {
+        pauseMessage.setText(message);
     }
 
     @Override
