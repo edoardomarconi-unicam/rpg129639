@@ -5,6 +5,7 @@ import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameObserver;
 import it.unicam.rpg.view.GameOverScene;
 import it.unicam.rpg.view.GameScene;
+import it.unicam.rpg.view.MainMenuScene;
 import javafx.scene.Scene;
 
 public class GameController implements GameObserver {
@@ -25,7 +26,9 @@ public class GameController implements GameObserver {
     }
 
     public void gameOver(String reason){
-        scene.setRoot(new GameOverScene(reason));
+        GameOverScene gameOverScene = new GameOverScene(reason);
+        gameOverScene.setGoToMainMenu(() -> {scene.setRoot(new MainMenuScene());});
+        scene.setRoot(gameOverScene);
     }
 
 }

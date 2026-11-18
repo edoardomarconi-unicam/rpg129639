@@ -11,12 +11,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 //TODO sistemare responsiveness del pannello
-public class GameOverScene extends StackPane implements GameObserver {
+public class GameOverScene extends StackPane{
     Label gameOverReason;
+    Button goToMainMenuButton = new Button("Menù principale");
+    Runnable goToMainMenu = () -> {};
 
     public GameOverScene(String reason) {
         gameOverReason = new Label(reason);
         setLayout();
+
+        goToMainMenuButton.setOnAction(event -> goToMainMenu.run());
     }
 
     private void setLayout(){
@@ -26,7 +30,7 @@ public class GameOverScene extends StackPane implements GameObserver {
         gameOverReason.setTextFill(Color.WHITE);
         root.getChildren().add(gameOverReason);
         HBox buttons = new HBox(
-                 new Button("Menù principale")
+                 goToMainMenuButton
         );
         buttons.setAlignment(Pos.CENTER);
         root.getChildren().add(buttons);
@@ -34,4 +38,6 @@ public class GameOverScene extends StackPane implements GameObserver {
         this.setStyle("-fx-background-color: #2d2d29");
         this.setAlignment(Pos.CENTER);
     }
+
+    public void setGoToMainMenu(Runnable goToMainMenu){this.goToMainMenu = goToMainMenu;}
 }
