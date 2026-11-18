@@ -27,7 +27,7 @@ public class GameController implements GameObserver {
 
     public void gameOver(String reason){
         GameOverScene gameOverScene = new GameOverScene(reason);
-        gameOverScene.setGoToMainMenu(() -> {scene.setRoot(new MainMenuScene());});
+        GameOverController gameOverController = new GameOverController(scene,gameOverScene);
         scene.setRoot(gameOverScene);
     }
 

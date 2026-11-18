@@ -19,6 +19,11 @@ public class Game {
         npcs = CardLoader.LoadNpcs();
     }
 
+    public Game(String playerName){
+        user = new User(playerName, "Player");
+        npcs = CardLoader.LoadNpcs();
+    }
+
     public void addObserver(GameObserver observer) {
         observers.add(observer);
     }

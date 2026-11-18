@@ -1,6 +1,7 @@
 package it.unicam.rpg;
 
 import it.unicam.rpg.controller.GameController;
+import it.unicam.rpg.controller.MenuController;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.players.User;
 import it.unicam.rpg.view.GameScene;
@@ -25,12 +26,13 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         Label l = new Label("Insieme per i bambini");
-        GameScene gameView = new GameScene(user, game.getNpcs().getFirst());
-        Scene gameScene = new Scene(gameView, 800, 600);
 
-        GameController controller = new GameController(gameView, game, gameScene);
+        MainMenuScene mainMenuScene = new MainMenuScene();
+        Scene startScene = new Scene(mainMenuScene,800,600);
 
-        stage.setScene(gameScene);
+        MenuController menuController = new MenuController(startScene, mainMenuScene);
+
+        stage.setScene(startScene);
         stage.setMinWidth(800);
         stage.setMinHeight(600);
         stage.show();
