@@ -1,15 +1,11 @@
 package it.unicam.rpg;
 
-import it.unicam.rpg.controller.GameController;
-import it.unicam.rpg.controller.MenuController;
+import it.unicam.rpg.controller.MainMenuController;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.players.User;
-import it.unicam.rpg.view.GameScene;
 import javafx.application.Application;
 import javafx.scene.*;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import it.unicam.rpg.view.*;
 
@@ -30,7 +26,7 @@ public class App extends Application {
         MainMenuScene mainMenuScene = new MainMenuScene();
         Scene startScene = new Scene(mainMenuScene,800,600);
 
-        MenuController menuController = new MenuController(startScene, mainMenuScene);
+        MainMenuController mainMenuController = new MainMenuController(startScene, mainMenuScene);
 
         stage.setScene(startScene);
         stage.setMinWidth(800);

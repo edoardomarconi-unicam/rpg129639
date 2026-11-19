@@ -14,7 +14,7 @@ public class GameOverController {
 
         gameOverScene.setGoToMainMenu(() -> {
             MainMenuScene mainMenuScene = new MainMenuScene();
-            MenuController menuController = new MenuController(scene,mainMenuScene);
+            MainMenuController mainMenuController = new MainMenuController(scene,mainMenuScene);
             scene.setRoot(mainMenuScene);
         });
     }
