@@ -18,7 +18,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
 
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
 //TODO classe troppo lunga, sistemare
 public class GameScene extends StackPane implements GameObserver {
@@ -26,7 +25,7 @@ public class GameScene extends StackPane implements GameObserver {
     User user;
     Npc npcs;
     BorderPane root = new BorderPane();
-    PauseMenu pauseMenu;
+    PauseMenuView pauseMenuView;
     HBox topBar;
     Map<ParameterType, ProgressBar> progressBars = new EnumMap<ParameterType, ProgressBar>(ParameterType.class);
     Rectangle card;
@@ -58,14 +57,14 @@ public class GameScene extends StackPane implements GameObserver {
         setCenter(npc);
         setBottom(npcName, npcRole);
 
-        pauseMenu = new PauseMenu();
-        this.getChildren().addAll(root, pauseMenu);
+        pauseMenuView = new PauseMenuView();
+        this.getChildren().addAll(root, pauseMenuView);
 
         //tasto esc apre e chiude il menu
         this.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if (e.getCode() == KeyCode.ESCAPE) {
-                if (pauseMenu.isVisible()) pauseMenu.closePauseMenu();
-                else pauseMenu.openPauseMenu();
+                if (pauseMenuView.isVisible()) pauseMenuView.closePauseMenu();
+                else pauseMenuView.openPauseMenu();
                 e.consume();
             }
         });
@@ -87,7 +86,7 @@ public class GameScene extends StackPane implements GameObserver {
         double verticalSpacing = 5;
         Button pauseButton = new Button("☰");
         pauseButton.setStyle("-fx-font-size: 18px;");
-        pauseButton.setOnAction(e -> pauseMenu.openPauseMenu());
+        pauseButton.setOnAction(e -> pauseMenuView.openPauseMenu());
         topBar = new HBox(
                 HORIZONTAL_SPACING,
                 creaIndicatore(ParameterType.HEALTH,"Salute", user.getHealth()),

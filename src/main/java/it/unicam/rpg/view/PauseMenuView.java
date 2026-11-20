@@ -2,7 +2,6 @@ package it.unicam.rpg.view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
@@ -12,7 +11,7 @@ import javafx.scene.paint.Color;
 
 import java.util.List;
 
-public class PauseMenu extends StackPane{
+public class PauseMenuView extends StackPane{
     private Runnable onSaveGame = () -> {};
     private Runnable onSettings = () -> {};
     private Runnable onMainMenu = () -> {};
@@ -22,7 +21,7 @@ public class PauseMenu extends StackPane{
     public void setOnSettings(Runnable onSettings) { this.onSettings = onSettings; }
     public void setOnMainMenu(Runnable onMainMenu) { this.onMainMenu = onMainMenu; }
 
-    public PauseMenu() {
+    public PauseMenuView() {
         //titolo
         Label title = new Label("Pausa");
         title.setTextFill(Color.WHITE);

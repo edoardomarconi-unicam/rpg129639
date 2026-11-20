@@ -1,21 +1,23 @@
 package it.unicam.rpg.controller;
 
 import it.unicam.rpg.model.Game;
+import it.unicam.rpg.model.ViewNavigator;
 import it.unicam.rpg.view.GameScene;
 import it.unicam.rpg.view.MainMenuScene;
 import it.unicam.rpg.view.PlayerDataInputScene;
 import javafx.scene.Scene;
 
+//TODO sistemare navigazioni
 public class PlayerDataInputController {
-    private Scene scene;
     private PlayerDataInputScene playerDataInputScene;
+    private ViewNavigator viewNavigator;
 
-    public PlayerDataInputController(Scene scene, PlayerDataInputScene playerDataInputScene) {
-        this.scene = scene;
+    public PlayerDataInputController(PlayerDataInputScene playerDataInputScene, ViewNavigator viewNavigator) {
         this.playerDataInputScene = playerDataInputScene;
+        this.viewNavigator = viewNavigator;
 
         playerDataInputScene.setOnBack(() ->{
-            scene.setRoot(new MainMenuScene());
+            viewNavigator.NavigateTo();
         });
 
         playerDataInputScene.setOnStartGame((String playerName) -> {
