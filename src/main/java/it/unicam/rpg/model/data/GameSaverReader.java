@@ -1,8 +1,7 @@
 package it.unicam.rpg.model.data;
 
-import com.google.gson.stream.JsonReader;
-import it.unicam.rpg.model.Game;
 import com.google.gson.*;
+import it.unicam.rpg.model.GameContextSave;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -11,45 +10,53 @@ import java.nio.file.Path;
 
 
 public class GameSaverReader{
-    private Game game;
+    private GameContextSave saving;
     private static final Path SAVE_FILE = Path.of("saves", "gameSave.json");
+    private static final Path SAVE_DIRECTORY = Path.of("saves");
 
-    public GameSaverReader(Game game){
-        this.game = game;
+    public GameSaverReader(GameContextSave saving){
+        this.saving = this.saving;
     }
 
-    public Game loadSavedGame(){
+    public GameContextSave loadSavedGame(){
         if(!SAVE_FILE.toFile().exists()){return null;}
         else{
             try{
-                game = new Gson().fromJson(new BufferedReader(Files.newBufferedReader(SAVE_FILE)), Game.class);
+                saving = new Gson().fromJson(new BufferedReader(Files.newBufferedReader(SAVE_FILE)), GameContextSave.class);
             }catch(IOException e){
                 System.out.println("Error in loading game");
                 e.printStackTrace();
             }
         }
-        return game;
+        return saving;
     }
 
     public boolean saveGame(){
-
+        if(!SAVE_DIRECTORY.toFile().exists()){
+            try {
+                Files.createDirectories(SAVE_DIRECTORY);
+            } catch (IOException e) {
+                System.out.println("Error in creating saving directory");
+                e.printStackTrace();
+            }
+        }
         if(!SAVE_FILE.toFile().exists()){
             try{
                 File saveFile = new File(SAVE_FILE.toUri());
                 saveFile.createNewFile();
                 FileWriter writer = new FileWriter(saveFile);
-                writer.write(new Gson().toJson(game));
+                writer.write(new Gson().toJson(saving));
+                writer.close();
             }catch(IOException e){
                 System.out.println("Error in saving game");
                 e.printStackTrace();
             }
             return true;
 
-        }
-        else{
+        } else{
             try{
                 FileWriter fileWriter = new FileWriter(SAVE_FILE.toFile());
-                fileWriter.write(new Gson().toJson(game));
+                fileWriter.write(new Gson().toJson(saving));
                 return true;
             }catch(IOException e){
                 System.out.println("Error in saving game");
