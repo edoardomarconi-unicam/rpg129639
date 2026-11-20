@@ -1,12 +1,16 @@
 package it.unicam.rpg.view;
 
+import com.sun.glass.ui.View;
+import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameObserver;
 import it.unicam.rpg.model.ParameterType;
+import it.unicam.rpg.model.ViewNavigator;
 import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.User;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -47,7 +51,7 @@ public class GameScene extends StackPane implements GameObserver {
     public void setOnMainMenu(Runnable onMainMenu) { this.onMainMenu = onMainMenu; }
 
 
-    public GameScene(User user, Npc npc) {
+    public GameScene(User user, Npc npc, Game game) {
         this.user = user;
         this.npcs = npc;
         String npcName = npc.getName();
@@ -57,7 +61,10 @@ public class GameScene extends StackPane implements GameObserver {
         setCenter(npc);
         setBottom(npcName, npcRole);
 
-        pauseMenuView = new PauseMenuView();
+
+        Scene scene = new Scene(new StackPane());
+        ViewNavigator viewNavigator = new ViewNavigator(scene);
+        pauseMenuView = new PauseMenuScreen(game).createScreen(viewNavigator);
         this.getChildren().addAll(root, pauseMenuView);
 
         //tasto esc apre e chiude il menu

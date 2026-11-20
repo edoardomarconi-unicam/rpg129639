@@ -15,6 +15,6 @@ public class GameOverScreen extends Screen<GameOverScene>{
     }
 
     protected void createController(GameOverScene view, ViewNavigator viewNavigator){
-        new GameOverController(view);
+        new GameOverController(view, viewNavigator);
     }
 }

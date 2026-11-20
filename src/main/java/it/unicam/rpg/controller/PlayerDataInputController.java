@@ -2,9 +2,7 @@ package it.unicam.rpg.controller;
 
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.view.GameScene;
-import it.unicam.rpg.view.MainMenuScene;
-import it.unicam.rpg.view.PlayerDataInputScene;
+import it.unicam.rpg.view.*;
 import javafx.scene.Scene;
 
 //TODO sistemare navigazioni
@@ -17,14 +15,15 @@ public class PlayerDataInputController {
         this.viewNavigator = viewNavigator;
 
         playerDataInputScene.setOnBack(() ->{
-            viewNavigator.NavigateTo();
+            viewNavigator.NavigateTo(new MainMenuScreen());
         });
 
         playerDataInputScene.setOnStartGame((String playerName) -> {
-            Game game = new Game(playerName);
-            GameScene gameScene = new GameScene(game.getUser(), game.getNpcs().getFirst());
-            new GameController(gameScene, game, scene);
-            scene.setRoot(gameScene);
+            viewNavigator.NavigateTo(
+                    new GameScreen(
+                            new Game(playerName)
+                    )
+            );
         });
     }
 }

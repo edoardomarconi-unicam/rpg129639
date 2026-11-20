@@ -1,13 +1,19 @@
 package it.unicam.rpg.view;
 
 import it.unicam.rpg.controller.PauseMenuController;
+import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.ViewNavigator;
 
 public class PauseMenuScreen extends Screen<PauseMenuView> {
+    Game game;
+    public PauseMenuScreen(Game game) {
+        this.game = game;
+    }
     protected PauseMenuView createView(){
         return new PauseMenuView();
     }
     protected void createController(PauseMenuView view, ViewNavigator viewNavigator){
-        new PauseMenuController(view, viewNavigator);
+        new PauseMenuController(view, viewNavigator, game);
     }
+    public Game getGame(){return game;}
 }

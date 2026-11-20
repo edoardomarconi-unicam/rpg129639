@@ -13,7 +13,7 @@ public class GameScreen extends Screen <GameScene>{
 
     @Override
     protected GameScene createView() {
-        return new GameScene(game.getUser(), game.getCurrentNpc());
+        return new GameScene(game.getUser(), game.getCurrentNpc(), game);
     }
 
     @Override

@@ -22,7 +22,6 @@ public class GameController implements GameObserver {
         this.viewNavigator = viewNavigator;
 
         game.addObserver(gameScene);
-        game.addObserver(this);
 
         gameScene.setOnRightChoice(() -> {game.choose(Direction.RIGHT, game.getUser());});
         gameScene.setOnLeftChoice(() -> {game.choose(Direction.LEFT, game.getUser());});
