@@ -18,11 +18,13 @@ public class Game {
     public Game(User user){
         this.user = user;
         npcs = CardLoader.LoadNpcs();
+        doneNpcs = new ArrayList<>();
     }
 
     public Game(String playerName){
         user = new User(playerName, "Player");
         npcs = CardLoader.LoadNpcs();
+        doneNpcs = new ArrayList<>();
     }
 
     public Game(String playerName, List<Npc> npcs,  List<Npc> doneNpcs){
