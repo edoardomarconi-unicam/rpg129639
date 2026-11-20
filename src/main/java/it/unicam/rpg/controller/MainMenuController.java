@@ -1,6 +1,7 @@
 package it.unicam.rpg.controller;
 
 import it.unicam.rpg.model.Game;
+import it.unicam.rpg.model.ViewNavigator;
 import it.unicam.rpg.model.data.GameSaverReader;
 import it.unicam.rpg.view.GameScene;
 import it.unicam.rpg.view.MainMenuScene;
@@ -9,12 +10,12 @@ import javafx.scene.Scene;
 
 public class MainMenuController {
     private GameSaverReader gameSaverReader;
-    private Scene scene;
     private MainMenuScene mainMenuScene;
+    private ViewNavigator viewNavigator;
 
-    public MainMenuController(Scene scene, MainMenuScene mainMenuScene){
-        this.scene = scene;
+    public MainMenuController(MainMenuScene mainMenuScene, ViewNavigator viewNavigator){
         this.mainMenuScene = mainMenuScene;
+        this.viewNavigator = viewNavigator;
 
         mainMenuScene.setOnContinueGame(() -> {
             Game game = gameSaverReader.loadSavedGame();
