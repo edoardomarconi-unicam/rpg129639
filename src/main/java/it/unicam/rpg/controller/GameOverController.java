@@ -4,12 +4,11 @@ import it.unicam.rpg.view.GameOverScene;
 import it.unicam.rpg.view.MainMenuScene;
 import javafx.scene.Scene;
 
+//TODO sistemare la navigazione del pulsante per tornare al main menu
 public class GameOverController {
-    private Scene scene;
     private GameOverScene gameOverScene;
 
-    public GameOverController(Scene scene, GameOverScene gameOverScene){
-        this.scene = scene;
+    public GameOverController(GameOverScene gameOverScene){
         this.gameOverScene = gameOverScene;
 
         gameOverScene.setGoToMainMenu(() -> {

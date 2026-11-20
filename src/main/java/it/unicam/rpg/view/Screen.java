@@ -10,6 +10,6 @@ public abstract class Screen <K extends Parent>{
         return view;
     }
 
-    public abstract K createView();
-    public abstract void createController(K view, ViewNavigator viewNavigator);
+    protected abstract K createView();
+    protected abstract void createController(K view, ViewNavigator viewNavigator);
 }

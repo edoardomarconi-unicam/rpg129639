@@ -5,11 +5,12 @@ import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameObserver;
 import it.unicam.rpg.model.ViewNavigator;
 import it.unicam.rpg.view.GameOverScene;
+import it.unicam.rpg.view.GameOverScreen;
 import it.unicam.rpg.view.GameScene;
 import it.unicam.rpg.view.MainMenuScene;
 import javafx.scene.Scene;
 
-//TODO vedere problemi legati a modifica, sistemare il gameover in relazione al nuovo navigator.
+//TODO vedere problemi legati a modifica
 public class GameController implements GameObserver {
     private GameScene gameScene;
     private Game game;
@@ -28,8 +29,7 @@ public class GameController implements GameObserver {
     }
 
     public void gameOver(String reason){
-        /*GameOverScene gameOverScene = new GameOverScene(reason);
-        GameOverController gameOverController = new GameOverController(scene,gameOverScene);*/
+        viewNavigator.NavigateTo(new GameOverScreen(reason));
     }
 
 
