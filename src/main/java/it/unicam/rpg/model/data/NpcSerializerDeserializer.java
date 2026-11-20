@@ -8,12 +8,22 @@ import it.unicam.rpg.model.players.NpcWithNoEffect;
 import java.lang.reflect.Type;
 
 public class NpcSerializerDeserializer implements JsonDeserializer<Npc>{
-    /*public JsonElement serialize(Npc npc, Type typeOfSrc, JsonSerializationContext context) {
+    private static final String WITH_EFFECT = "with-effect";
+    private static final String NO_EFFECT = "no-effect";
+    public JsonElement serialize(Npc npc, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonObject = context.serialize(npc, npc.getClass()).getAsJsonObject();
-        jsonObject.addProperty("type", npc.getClass().getSimpleName());
+
+        String type;
+        if(npc instanceof NpcWithEffect){
+            type = WITH_EFFECT;
+        }else if(npc instanceof NpcWithNoEffect){
+            type = NO_EFFECT;
+        }else throw new JsonParseException("NPC type unknown");
+
+        jsonObject.addProperty("type", type);
 
         return jsonObject;
-    }*/
+    }
 
     @Override
     public Npc deserialize(JsonElement npc, Type typeOfSrc, JsonDeserializationContext context) throws JsonParseException {

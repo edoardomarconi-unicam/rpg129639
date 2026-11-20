@@ -27,9 +27,10 @@ public class PauseMenuController {
         });
 
         pauseMenuView.setOnSaveGame(() -> {
-            if(new GameSaverReader(saving).saveGame())
+            if(new GameSaverReader(saving).saveGame()){
+                new GameSaverReader(saving).saveGame();
                 System.out.println("Game saved successfully!");
-            else
+            } else
                 System.out.println("Save failed!");
         });
     }

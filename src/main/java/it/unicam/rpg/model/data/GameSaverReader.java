@@ -15,7 +15,7 @@ public class GameSaverReader{
     private static final Path SAVE_DIRECTORY = Path.of("saves");
 
     public GameSaverReader(GameContextSave saving){
-        this.saving = this.saving;
+        this.saving = saving;
     }
 
     public GameContextSave loadSavedGame(){
@@ -53,16 +53,17 @@ public class GameSaverReader{
             }
             return true;
 
-        } else{
+        } else if(SAVE_FILE.toFile().exists()){
             try{
                 FileWriter fileWriter = new FileWriter(SAVE_FILE.toFile());
                 fileWriter.write(new Gson().toJson(saving));
+                fileWriter.close();
                 return true;
             }catch(IOException e){
                 System.out.println("Error in saving game");
                 e.printStackTrace();
             }
             return true;
-        }
+        } else return false;
     }
 }
