@@ -62,6 +62,8 @@ public class PauseMenu extends StackPane{
         //sfondo scuro semitrasparente che copre tutta la partita
         this.setStyle("-fx-background-color: rgba(0, 0, 0, 0.6);");
         this.setVisible(false);
+
+        this.getChildren().add(panel);
     }
 
     public void openPauseMenu() {

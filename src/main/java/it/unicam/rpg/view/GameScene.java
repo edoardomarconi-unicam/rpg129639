@@ -51,9 +51,12 @@ public class GameScene extends StackPane implements GameObserver {
     public GameScene(User user, Npc npc) {
         this.user = user;
         this.npcs = npc;
+        String npcName = npc.getName();
+        String npcRole = npc.getRole();
 
         setTopBar(user);
         setCenter(npc);
+        setBottom(npcName, npcRole);
 
         pauseMenu = new PauseMenu();
         this.getChildren().addAll(root, pauseMenu);
@@ -66,11 +69,6 @@ public class GameScene extends StackPane implements GameObserver {
                 e.consume();
             }
         });
-
-        String npcName = npc.getName();
-        String npcRole = npc.getRole();
-        setBottom(npcName, npcRole);
-
     }
 
     //metodo di supporto per creare PrograssBar dei parametri
