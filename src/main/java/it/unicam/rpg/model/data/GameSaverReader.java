@@ -38,6 +38,7 @@ public class GameSaverReader{
     }
 
     public boolean saveGame(){
+        //creazione della directory di salvataggio nel caso non esista
         if(!SAVE_DIRECTORY.toFile().exists()){
             try {
                 Files.createDirectories(SAVE_DIRECTORY);
@@ -46,13 +47,13 @@ public class GameSaverReader{
                 e.printStackTrace();
             }
         }
+
+        //creazione e salvataggio del file
         if(!SAVE_FILE.toFile().exists()){
-            try{
+            try(FileWriter writer =  new FileWriter(SAVE_FILE.toFile())){
                 File saveFile = new File(SAVE_FILE.toUri());
                 saveFile.createNewFile();
-                FileWriter writer = new FileWriter(saveFile);
                 writer.write(GSON_BUILDER.toJson(saving));
-                writer.close();
             }catch(IOException e){
                 System.out.println("Error in saving game");
                 e.printStackTrace();
@@ -60,10 +61,8 @@ public class GameSaverReader{
             return true;
 
         } else if(SAVE_FILE.toFile().exists()){
-            try{
-                FileWriter fileWriter = new FileWriter(SAVE_FILE.toFile());
+            try(FileWriter fileWriter = new FileWriter(SAVE_FILE.toFile());){
                 fileWriter.write(GSON_BUILDER.toJson(saving));
-                fileWriter.close();
                 return true;
             }catch(IOException e){
                 System.out.println("Error in saving game");
