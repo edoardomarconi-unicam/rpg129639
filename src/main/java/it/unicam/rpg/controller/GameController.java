@@ -21,6 +21,7 @@ public class GameController implements GameObserver {
         this.gameScene.setPauseMenuView(new PauseMenuScreen(game).createScreen(viewNavigator));
 
         game.addObserver(gameScene);
+        game.addObserver(this);
 
         this.gameScene.setOnRightChoice(() -> {game.choose(Direction.RIGHT, game.getUser());});
         this.gameScene.setOnLeftChoice(() -> {game.choose(Direction.LEFT, game.getUser());});
