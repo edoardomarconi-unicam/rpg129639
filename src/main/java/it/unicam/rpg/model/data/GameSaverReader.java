@@ -45,6 +45,7 @@ public class GameSaverReader{
             } catch (IOException e) {
                 System.out.println("Error in creating saving directory");
                 e.printStackTrace();
+                return false;
             }
         }
 
@@ -54,11 +55,12 @@ public class GameSaverReader{
                 File saveFile = new File(SAVE_FILE.toUri());
                 saveFile.createNewFile();
                 writer.write(GSON_BUILDER.toJson(saving));
+                return true;
             }catch(IOException e){
                 System.out.println("Error in saving game");
                 e.printStackTrace();
+                return false;
             }
-            return true;
 
         } else if(SAVE_FILE.toFile().exists()){
             try(FileWriter fileWriter = new FileWriter(SAVE_FILE.toFile());){
@@ -67,8 +69,9 @@ public class GameSaverReader{
             }catch(IOException e){
                 System.out.println("Error in saving game");
                 e.printStackTrace();
+                return false;
             }
-            return true;
-        } else return false;
+        }
+        return false;
     }
 }
