@@ -19,9 +19,15 @@ public class MainMenuController {
 
         mainMenuScene.setOnContinueGame(() -> {
             GameContextSave saving = new GameContextSave();
-            Game game = GameContextSaveTranslator.translateToGame(
-                    new GameSaverReader(saving).loadSavedGame());
-            viewNavigator.NavigateTo(new GameScreen(game));
+
+            if(new GameSaverReader(saving).loadSavedGame() == null){
+                viewNavigator.NavigateTo(new PlayerDataInputScreen());
+                System.out.println("no saves found");
+            }else{
+                Game game = GameContextSaveTranslator.translateToGame(
+                        new GameSaverReader(saving).loadSavedGame());
+                viewNavigator.NavigateTo(new GameScreen(game));
+            }
         });
 
         mainMenuScene.setOnNewGame(() ->  {
