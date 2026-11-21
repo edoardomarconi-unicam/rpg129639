@@ -1,13 +1,11 @@
 package it.unicam.rpg;
 
+import it.unicam.rpg.controller.MainMenuController;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.players.User;
-import it.unicam.rpg.view.GameScene;
 import javafx.application.Application;
 import javafx.scene.*;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import it.unicam.rpg.view.*;
 
@@ -24,10 +22,13 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         Label l = new Label("Insieme per i bambini");
-        Scene scene = new Scene(new StackPane(l), 800, 600); //allineamento al centro di default
-        Scene gameScene = new Scene(new GameScene(user, game.getNpcs().getFirst()), 800, 600);
 
-        stage.setScene(gameScene);
+        MainMenuScene mainMenuScene = new MainMenuScene();
+        Scene startScene = new Scene(mainMenuScene,800,600);
+
+        MainMenuController mainMenuController = new MainMenuController(startScene, mainMenuScene);
+
+        stage.setScene(startScene);
         stage.setMinWidth(800);
         stage.setMinHeight(600);
         stage.show();
