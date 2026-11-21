@@ -60,6 +60,7 @@ public class Game {
 
     //getter
     public  List<Npc> getNpcs(){return npcs;}
+    public Npc getCurrentNpc(){return npcs.getFirst();}
     public User getUser(){return user;}
 }
 

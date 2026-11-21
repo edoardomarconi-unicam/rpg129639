@@ -2,33 +2,31 @@ package it.unicam.rpg;
 
 import it.unicam.rpg.controller.MainMenuController;
 import it.unicam.rpg.model.Game;
+import it.unicam.rpg.model.ViewNavigator;
 import it.unicam.rpg.model.players.User;
 import javafx.application.Application;
 import javafx.scene.*;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import it.unicam.rpg.view.*;
 
 public class App extends Application {
-    Game game;
-    User user;
     //TODO sistemare la logica di init gioco con schermata iniziale e selzione partite
     @Override
     public void init(){
-        user = new User("Edoardo", "player");
-        game = new Game(user);
     }
 
     @Override
     public void start(Stage stage) {
-        Label l = new Label("Insieme per i bambini");
+        //creo una scena temporanea per poter inizializzare il ViewNavigator
+        Scene scene = new Scene(new StackPane());
 
-        MainMenuScene mainMenuScene = new MainMenuScene();
-        Scene startScene = new Scene(mainMenuScene,800,600);
+        //creo e vado al main menu
+        ViewNavigator viewNavigator = new ViewNavigator(scene);
+        viewNavigator.NavigateTo(new MainMenuScreen());
 
-        MainMenuController mainMenuController = new MainMenuController(startScene, mainMenuScene);
-
-        stage.setScene(startScene);
+        stage.setScene(scene);
         stage.setMinWidth(800);
         stage.setMinHeight(600);
         stage.show();
