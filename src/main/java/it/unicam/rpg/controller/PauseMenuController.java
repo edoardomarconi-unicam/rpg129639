@@ -20,15 +20,15 @@ public class PauseMenuController {
     }
 
     public void menuButtonActions(Game game){
-        GameContextSave saving = GameContextSaveTranslator.translateFromGame(game);
         pauseMenuView.setOnMainMenu(() -> {
+            GameContextSave saving = GameContextSaveTranslator.translateFromGame(game);
             new GameSaverReader(saving).saveGame();
             viewNavigator.NavigateTo(new MainMenuScreen());
         });
 
         pauseMenuView.setOnSaveGame(() -> {
+            GameContextSave saving = GameContextSaveTranslator.translateFromGame(game);
             if(new GameSaverReader(saving).saveGame()){
-                new GameSaverReader(saving).saveGame();
                 System.out.println("Game saved successfully!");
             } else
                 System.out.println("Save failed!");
