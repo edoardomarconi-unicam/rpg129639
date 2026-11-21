@@ -5,9 +5,7 @@ import it.unicam.rpg.model.GameContextSave;
 import it.unicam.rpg.model.GameContextSaveTranslator;
 import it.unicam.rpg.model.ViewNavigator;
 import it.unicam.rpg.model.data.GameSaverReader;
-import it.unicam.rpg.view.GameScene;
-import it.unicam.rpg.view.MainMenuScreen;
-import it.unicam.rpg.view.PauseMenuView;
+import it.unicam.rpg.view.*;
 
 public class PauseMenuController {
     private PauseMenuView pauseMenuView;
@@ -32,6 +30,10 @@ public class PauseMenuController {
                 System.out.println("Game saved successfully!");
             } else
                 System.out.println("Save failed!");
+        });
+
+        pauseMenuView.setOnSettings(() -> {
+            viewNavigator.NavigateTo(new SettingsScreen(new GameScreen(game)));
         });
     }
 }

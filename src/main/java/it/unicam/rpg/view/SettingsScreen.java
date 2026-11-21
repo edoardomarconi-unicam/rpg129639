@@ -1,6 +1,5 @@
 package it.unicam.rpg.view;
 
-import com.sun.scenario.Settings;
 import it.unicam.rpg.controller.SettingsController;
 import it.unicam.rpg.model.ViewNavigator;
 import javafx.scene.Scene;
@@ -10,9 +9,7 @@ public class SettingsScreen extends Screen<SettingsView>{
     private ViewNavigator viewNavigator;
     private Screen<?> previusScreen;
 
-    public SettingsScreen(SettingsView settingsView, ViewNavigator viewNavigator, Screen<?> previusScreen) {
-        this.settingsView = settingsView;
-        this.viewNavigator = viewNavigator;
+    public SettingsScreen(Screen<?> previusScreen) {
         this.previusScreen = previusScreen;
     }
 
@@ -20,7 +17,7 @@ public class SettingsScreen extends Screen<SettingsView>{
         return new SettingsView();
     }
 
-    protected void createController(SettingsView settingsView, ViewNavigator viewNavigator){
+    protected void createController(SettingsView settingsView, ViewNavigator viewNavigator) {
         new SettingsController(settingsView, viewNavigator, this.previusScreen);
     }
 }
