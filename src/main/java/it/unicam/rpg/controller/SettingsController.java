@@ -16,6 +16,7 @@ public class SettingsController{
         this.settingsView = settingsView;
         this.viewNavigator = viewNavigator;
         this.previusScreen = previusScreen;
+        settingsButtonsActions(this.previusScreen);
     }
 
     public void settingsButtonsActions(Screen<?> previusScreen) {

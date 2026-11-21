@@ -33,5 +33,9 @@ public class MainMenuController {
         mainMenuScene.setOnNewGame(() ->  {
             viewNavigator.NavigateTo(new PlayerDataInputScreen());
         });
+
+        mainMenuScene.setOnSettings(() -> {
+            viewNavigator.NavigateTo(new SettingsScreen(new MainMenuScreen()));
+        });
     }
 }

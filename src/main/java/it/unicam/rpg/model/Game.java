@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import it.unicam.rpg.model.data.CardLoader;
+import it.unicam.rpg.model.data.SettingsLoaderSaver;
 import it.unicam.rpg.model.players.*;
 //TODO finire implementazione Game, sistemare la sezione del game over
 //TODO ricordati di rimettere la lista degli npcs nuovamente privata una volta finito con le prove
 public class Game {
     private List<GameObserver> observers = new ArrayList<GameObserver>();
-    private ChoiceEffectApplicator effectApplicator = new ChoiceEffectApplicator();
+    private ChoiceEffectApplicator effectApplicator = new ChoiceEffectApplicator(new SettingsLoaderSaver().load().getDifficulty());
     private List<Npc> npcs;
     private List<Npc> doneNpcs;
     private User user;

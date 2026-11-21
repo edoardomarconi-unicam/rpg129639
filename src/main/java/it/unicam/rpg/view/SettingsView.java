@@ -1,6 +1,7 @@
 package it.unicam.rpg.view;
 
 import it.unicam.rpg.model.Difficulty;
+import it.unicam.rpg.model.data.SettingsLoaderSaver;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -38,6 +39,7 @@ public class SettingsView extends StackPane {
 
         difficultyBox = new ComboBox<>();
         difficultyBox.getItems().addAll(Difficulty.values());
+        difficultyBox.setValue(new SettingsLoaderSaver().load().getDifficulty());
         difficultyBox.setMaxWidth(Double.MAX_VALUE);
         difficultyBox.setStyle("-fx-font-size: 16px;");
         difficultyBox.setOnAction(e -> {
