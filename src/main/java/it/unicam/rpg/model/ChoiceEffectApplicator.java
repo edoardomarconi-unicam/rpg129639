@@ -16,11 +16,11 @@ public class ChoiceEffectApplicator {
         if (npc instanceof NpcWithEffect) {
             if (direction == Direction.LEFT) {
                 user.getParameters().changeParameters(
-                        scaled(npc.getParameters().getValues()));
+                        scaled(npc.getLeft().getEffects()));
                 return true;
             } else if (direction == Direction.RIGHT) {
                 user.getParameters().changeParameters(
-                        scaled(npc.getParameters().getValues()));
+                        scaled(npc.getRight().getEffects()));
                 return true;
             }else throw new IllegalArgumentException("Direzione non riconosciuta");
         }else return false;
