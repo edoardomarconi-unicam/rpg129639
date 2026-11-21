@@ -100,6 +100,7 @@ public class GameScene extends StackPane implements GameObserver {
 
         topBar.setAlignment(Pos.CENTER);
         topBar.setPadding(new Insets(HORIZONTAL_SPACING));
+        topBar.getChildren().add(pauseButton);
         root.setTop(topBar);
     }
 
