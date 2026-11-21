@@ -31,6 +31,7 @@ public class GameSaverReader{
             }catch(IOException | JsonParseException e){
                 System.out.println("Error in loading game");
                 e.printStackTrace();
+                return null;
             }
         }
         return saving;

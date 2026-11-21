@@ -61,9 +61,7 @@ public class GameScene extends StackPane implements GameObserver {
         setCenter(npc);
         setBottom(npcName, npcRole);
 
-
-
-        this.getChildren().addAll(root, pauseMenuView);
+        this.getChildren().add(root);
 
         //tasto esc apre e chiude il menu
         this.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
@@ -202,6 +200,7 @@ public class GameScene extends StackPane implements GameObserver {
     //metodo per creare il pannello del pause menu
     public void setPauseMenuView(PauseMenuView pauseMenuView){
         this.pauseMenuView = pauseMenuView;
+        this.getChildren().add(pauseMenuView);
     }
 
 
