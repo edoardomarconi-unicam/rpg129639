@@ -2,6 +2,7 @@ package it.unicam.rpg.model.data;
 
 import com.google.gson.*;
 import it.unicam.rpg.model.GameContextSave;
+import it.unicam.rpg.model.players.Npc;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -13,17 +14,22 @@ public class GameSaverReader{
     private GameContextSave saving;
     private static final Path SAVE_FILE = Path.of("saves", "gameSave.json");
     private static final Path SAVE_DIRECTORY = Path.of("saves");
+    public static final Gson GSON_BUILDER = new GsonBuilder().registerTypeAdapter(Npc.class, new NpcSerializerDeserializer())
+            .setPrettyPrinting()
+            .create();
 
     public GameSaverReader(GameContextSave saving){
         this.saving = saving;
     }
 
     public GameContextSave loadSavedGame(){
+
+        //gestisco anche l'eccezione JsonParseException perchè è quella sollevata da GSON_BUILDER
         if(!SAVE_FILE.toFile().exists()){return null;}
         else{
             try{
-                saving = new Gson().fromJson(new BufferedReader(Files.newBufferedReader(SAVE_FILE)), GameContextSave.class);
-            }catch(IOException e){
+                saving = GSON_BUILDER.fromJson(new BufferedReader(Files.newBufferedReader(SAVE_FILE)), GameContextSave.class);
+            }catch(IOException | JsonParseException e){
                 System.out.println("Error in loading game");
                 e.printStackTrace();
             }
@@ -45,7 +51,7 @@ public class GameSaverReader{
                 File saveFile = new File(SAVE_FILE.toUri());
                 saveFile.createNewFile();
                 FileWriter writer = new FileWriter(saveFile);
-                writer.write(new Gson().toJson(saving));
+                writer.write(GSON_BUILDER.toJson(saving));
                 writer.close();
             }catch(IOException e){
                 System.out.println("Error in saving game");
@@ -56,7 +62,7 @@ public class GameSaverReader{
         } else if(SAVE_FILE.toFile().exists()){
             try{
                 FileWriter fileWriter = new FileWriter(SAVE_FILE.toFile());
-                fileWriter.write(new Gson().toJson(saving));
+                fileWriter.write(GSON_BUILDER.toJson(saving));
                 fileWriter.close();
                 return true;
             }catch(IOException e){
