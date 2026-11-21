@@ -1,5 +1,16 @@
 plugins {
-    id("java")
+    java
+    application
+    id("org.openjfx.javafxplugin") version "0.1.0"
+}
+
+javafx {
+    version = "21.0.5"
+    modules("javafx.controls", "javafx.fxml")
+}
+
+application {
+    mainClass.set("it.unicam.rpg.App")
 }
 
 group = "org.example"

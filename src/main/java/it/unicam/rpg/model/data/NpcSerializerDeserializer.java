@@ -1,20 +1,21 @@
-package data;
+package it.unicam.rpg.model.data;
 
 import com.google.gson.*;
-import players.Npc;
-import players.NpcWithEffect;
-import players.NpcWithNoEffect;
+import it.unicam.rpg.model.players.Npc;
+import it.unicam.rpg.model.players.NpcWithEffect;
+import it.unicam.rpg.model.players.NpcWithNoEffect;
 
 import java.lang.reflect.Type;
 
-public class NpcSerializerDeserializer implements JsonDeserializer<Npc>, JsonSerializer<Npc> {
-    public JsonElement serialize(Npc npc, Type typeOfSrc, JsonSerializationContext context) {
+public class NpcSerializerDeserializer implements JsonDeserializer<Npc>{
+    /*public JsonElement serialize(Npc npc, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonObject = context.serialize(npc, npc.getClass()).getAsJsonObject();
         jsonObject.addProperty("type", npc.getClass().getSimpleName());
 
         return jsonObject;
-    }
+    }*/
 
+    @Override
     public Npc deserialize(JsonElement npc, Type typeOfSrc, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = npc.getAsJsonObject();
 

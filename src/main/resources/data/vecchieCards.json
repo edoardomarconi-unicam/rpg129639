@@ -1,0 +1,164 @@
+[
+  {
+    "type": "with-effect",
+    "name": "Abebe",
+    "role": "lustrascarpe",
+    "quest": "Mi aiuti a lucidare le scarpe dei turisti alla stazione? Dividiamo la paga.",
+    "parameters": {
+      "health": -2,
+      "education": -3,
+      "fear": 0,
+      "brotherhood": 5
+    }
+  },
+  {
+    "type": "with-effect",
+    "name": "Suor Tsehay",
+    "role": "suora",
+    "quest": "Domani apriamo una classe al centro. Vuoi venire a imparare a leggere?",
+    "parameters": {
+      "health": 2,
+      "education": 10,
+      "fear": -3,
+      "brotherhood": 0
+    }
+  },
+  {
+    "type": "with-effect",
+    "name": "Dawit",
+    "role": "capobanda",
+    "quest": "Se vuoi stare con noi devi prendere il portafoglio a quel signore.",
+    "parameters": {
+      "health": 0,
+      "education": -5,
+      "fear": 8,
+      "brotherhood": 6
+    }
+  },
+  {
+    "type": "no-effect",
+    "name": "Hana",
+    "role": "amica",
+    "quest": "Guarda, stanno passando gli aquiloni sopra il mercato!"
+  },
+  {
+    "type": "with-effect",
+    "name": "Ato Girma",
+    "role": "venditore di injera",
+    "quest": "Ti do un pezzo di pane se mi scarichi i sacchi dal camion.",
+    "parameters": {
+      "health": 4,
+      "education": 0,
+      "fear": 0,
+      "brotherhood": -1
+    }
+  },
+  {
+    "type": "with-effect",
+    "name": "Yonas",
+    "role": "ragazzo più grande",
+    "quest": "Prova questa colla, ti fa passare la fame.",
+    "parameters": {
+      "health": -10,
+      "education": -4,
+      "fear": -5,
+      "brotherhood": 3
+    }
+  },
+  {
+    "type": "with-effect",
+    "name": "Fra Matteo",
+    "role": "missionario",
+    "quest": "Allo Smiling Children Town c'è un letto libero. Vuoi venire a vedere?",
+    "parameters": {
+      "health": 8,
+      "education": 5,
+      "fear": -6,
+      "brotherhood": -2
+    }
+  },
+  {
+    "type": "no-effect",
+    "name": "Selam",
+    "role": "sorellina",
+    "quest": "Mi racconti di nuovo la storia della stella?"
+  },
+  {
+    "type": "with-effect",
+    "name": "Agente Bekele",
+    "role": "poliziotto",
+    "quest": "Non puoi dormire qui. Sparisci o ti porto via.",
+    "parameters": {
+      "health": -1,
+      "education": 0,
+      "fear": 7,
+      "brotherhood": 0
+    }
+  },
+  {
+    "type": "with-effect",
+    "name": "Meron",
+    "role": "amica",
+    "quest": "Ho trovato una coperta. Stanotte dormiamo insieme sotto il ponte?",
+    "parameters": {
+      "health": 3,
+      "education": 0,
+      "fear": -4,
+      "brotherhood": 7
+    }
+  },
+  {
+    "type": "with-effect",
+    "name": "Tesfaye",
+    "role": "meccanico",
+    "quest": "Mi serve un apprendista in officina. Niente paga, ma ti insegno il mestiere.",
+    "parameters": {
+      "health": -2,
+      "education": 6,
+      "fear": 0,
+      "brotherhood": -3
+    }
+  },
+  {
+    "type": "no-effect",
+    "name": "Kidus",
+    "role": "amico",
+    "quest": "Facciamo una partita a pallone con le bottiglie?"
+  },
+  {
+    "type": "with-effect",
+    "name": "Signora Almaz",
+    "role": "turista",
+    "quest": "Tieni questi soldi, ma promettimi che ci compri da mangiare.",
+    "parameters": {
+      "health": 5,
+      "education": 0,
+      "fear": 0,
+      "brotherhood": 0
+    }
+  },
+  {
+    "type": "with-effect",
+    "name": "Dawit",
+    "role": "capobanda",
+    "quest": "Hai parlato con i frati? Qui chi se ne va non torna più.",
+    "parameters": {
+      "health": 0,
+      "education": 0,
+      "fear": 10,
+      "brotherhood": -10
+    }
+  },
+  {
+    "type": "with-effect",
+    "name": "Liya",
+    "role": "infermiera",
+    "quest": "Quella ferita è infetta. Vieni in ambulatorio, anche se c'è da aspettare.",
+    "parameters": {
+      "health": 9,
+      "education": 1,
+      "fear": 2,
+      "brotherhood": 0
+    }
+  }
+]
