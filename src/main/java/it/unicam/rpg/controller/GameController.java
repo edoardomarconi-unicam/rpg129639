@@ -4,10 +4,10 @@ import it.unicam.rpg.model.Direction;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameObserver;
 import it.unicam.rpg.model.ViewNavigator;
+import it.unicam.rpg.model.data.SettingsLoaderSaver;
 import it.unicam.rpg.view.*;
 import javafx.scene.Scene;
 
-//TODO vedere problemi legati a modifica
 public class GameController implements GameObserver {
     private GameScene gameScene;
     private Game game;
@@ -19,6 +19,7 @@ public class GameController implements GameObserver {
         this.viewNavigator = viewNavigator;
 
         this.gameScene.setPauseMenuView(new PauseMenuScreen(game).createScreen(viewNavigator));
+        game.setDifficulty(new SettingsLoaderSaver().load().getDifficulty());
 
         game.addObserver(gameScene);
         game.addObserver(this);

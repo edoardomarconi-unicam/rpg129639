@@ -4,6 +4,7 @@ import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.NpcWithEffect;
 import it.unicam.rpg.model.players.User;
 
+import java.util.EnumMap;
 import java.util.Map;
 
 public class ChoiceEffectApplicator {
@@ -13,24 +14,25 @@ public class ChoiceEffectApplicator {
     }
     public boolean application(User user, Npc npc, Direction direction) {
         if (npc instanceof NpcWithEffect) {
-            Map<ParameterType, Integer> leftEffects = npc.getLeft().getEffects();
-            Map<ParameterType, Integer> rightEffects = npc.getRight().getEffects();
-
-            leftEffects.forEach((parameterType, value) -> {
-                value = difficulty.apply(value);
-            });
-
-            rightEffects.forEach((parameterType, value) -> {
-                value = difficulty.apply(value);
-            });
-
             if (direction == Direction.LEFT) {
-                user.getParameters().changeParameters(leftEffects);
+                user.getParameters().changeParameters(
+                        scaled(npc.getParameters().getValues()));
                 return true;
             } else if (direction == Direction.RIGHT) {
-                user.getParameters().changeParameters(rightEffects);
+                user.getParameters().changeParameters(
+                        scaled(npc.getParameters().getValues()));
                 return true;
             }else throw new IllegalArgumentException("Direzione non riconosciuta");
         }else return false;
+    }
+
+    private Map<ParameterType, Integer> scaled(Map<ParameterType, Integer> effects) {
+        Map<ParameterType, Integer> result = new EnumMap<>(ParameterType.class);
+        effects.forEach((type, value) -> result.put(type, difficulty.apply(value)));
+        return result;
+    }
+
+    public void difficultyChanged(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }

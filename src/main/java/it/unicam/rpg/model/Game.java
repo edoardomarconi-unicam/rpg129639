@@ -69,6 +69,9 @@ public class Game {
         }
     }
 
+    public void setDifficulty(Difficulty difficulty) {
+        effectApplicator.difficultyChanged(difficulty);
+    }
 
 
     //getter
