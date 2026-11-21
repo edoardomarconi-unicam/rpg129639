@@ -7,6 +7,8 @@ public class Settings {
         this.difficulty = difficulty;
     }
 
+    public Settings() {}
+
     public Difficulty getDifficulty() {
         return difficulty;
     }

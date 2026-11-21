@@ -74,4 +74,12 @@ public class GameSaverReader{
         }
         return false;
     }
+
+    public boolean deleteAllSaves(){
+        if(SAVE_FILE.toFile().exists()){
+            return new File(SAVE_FILE.toUri()).delete();
+        }else{
+            return false;
+        }
+    }
 }
