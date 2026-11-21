@@ -1,6 +1,7 @@
 package it.unicam.rpg.model;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Choice {
 
@@ -28,6 +29,19 @@ public class Choice {
 
     public boolean hasEffects() {
         return !effects.isEmpty();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Choice choice)) return false;
+        return Objects.equals(label, choice.label)
+                && Objects.equals(effects, choice.effects);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(label, effects);
     }
 
     @Override

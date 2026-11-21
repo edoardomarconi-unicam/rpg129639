@@ -25,5 +25,5 @@ public class User extends Player {
     public double getFear(){
         return (double) parameters.getValues().get(ParameterType.FEAR);
     }
-
+    public void setParameters(Parameters parameters){this.parameters = parameters;}
 }

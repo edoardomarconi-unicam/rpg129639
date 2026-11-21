@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public class CardLoader {
-    public static final Gson GSON_BUILDER = new GsonBuilder().registerTypeAdapter(Npc.class, new NpcSerializerDeserializer())
+    private static final Gson GSON_BUILDER = new GsonBuilder().registerTypeAdapter(Npc.class, new NpcSerializerDeserializer())
                                                     .setPrettyPrinting()
                                                     .create();
     public static final Gson gson = new Gson();

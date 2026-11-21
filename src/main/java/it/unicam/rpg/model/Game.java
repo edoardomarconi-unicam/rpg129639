@@ -12,16 +12,25 @@ public class Game {
     private List<GameObserver> observers = new ArrayList<GameObserver>();
     private ChoiceEffectApplicator effectApplicator = new ChoiceEffectApplicator();
     private List<Npc> npcs;
+    private List<Npc> doneNpcs;
     private User user;
 
     public Game(User user){
         this.user = user;
         npcs = CardLoader.LoadNpcs();
+        doneNpcs = new ArrayList<>();
     }
 
     public Game(String playerName){
         user = new User(playerName, "Player");
         npcs = CardLoader.LoadNpcs();
+        doneNpcs = new ArrayList<>();
+    }
+
+    public Game(String playerName, List<Npc> npcs,  List<Npc> doneNpcs){
+        user = new User(playerName, "Player");
+        this.npcs = npcs;
+        this.doneNpcs = doneNpcs;
     }
 
     public void addObserver(GameObserver observer) {
@@ -46,6 +55,7 @@ public class Game {
             }
 
             //elimino l'attuale carta dalla Map
+            doneNpcs.add(npcs.getFirst());
             npcs.removeFirst();
 
             //carico una nuova carta e nel caso npcs sia vuoto, chiamo il gameOver()
@@ -58,9 +68,12 @@ public class Game {
         }
     }
 
+
+
     //getter
     public  List<Npc> getNpcs(){return npcs;}
     public Npc getCurrentNpc(){return npcs.getFirst();}
+    public List<Npc> getDoneNpcs(){return doneNpcs;}
     public User getUser(){return user;}
 }
 

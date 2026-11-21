@@ -4,10 +4,7 @@ import it.unicam.rpg.model.Direction;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameObserver;
 import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.view.GameOverScene;
-import it.unicam.rpg.view.GameOverScreen;
-import it.unicam.rpg.view.GameScene;
-import it.unicam.rpg.view.MainMenuScene;
+import it.unicam.rpg.view.*;
 import javafx.scene.Scene;
 
 //TODO vedere problemi legati a modifica
@@ -21,10 +18,12 @@ public class GameController implements GameObserver {
         this.game = game;
         this.viewNavigator = viewNavigator;
 
+        this.gameScene.setPauseMenuView(new PauseMenuScreen(game).createScreen(viewNavigator));
+
         game.addObserver(gameScene);
 
-        gameScene.setOnRightChoice(() -> {game.choose(Direction.RIGHT, game.getUser());});
-        gameScene.setOnLeftChoice(() -> {game.choose(Direction.LEFT, game.getUser());});
+        this.gameScene.setOnRightChoice(() -> {game.choose(Direction.RIGHT, game.getUser());});
+        this.gameScene.setOnLeftChoice(() -> {game.choose(Direction.LEFT, game.getUser());});
     }
 
     public void gameOver(String reason){
