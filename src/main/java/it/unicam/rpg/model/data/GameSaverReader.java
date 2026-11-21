@@ -21,9 +21,8 @@ public class GameSaverReader{
     public GameSaverReader(GameContextSave saving){
         this.saving = saving;
     }
-
+    public GameSaverReader(){}
     public GameContextSave loadSavedGame(){
-
         //gestisco anche l'eccezione JsonParseException perchè è quella sollevata da GSON_BUILDER
         if(!SAVE_FILE.toFile().exists()){return null;}
         else{

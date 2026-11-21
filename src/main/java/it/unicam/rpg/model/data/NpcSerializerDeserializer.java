@@ -7,7 +7,7 @@ import it.unicam.rpg.model.players.NpcWithNoEffect;
 
 import java.lang.reflect.Type;
 
-public class NpcSerializerDeserializer implements JsonDeserializer<Npc>{
+public class NpcSerializerDeserializer implements JsonDeserializer<Npc>, JsonSerializer<Npc>{
     private static final String WITH_EFFECT = "with-effect";
     private static final String NO_EFFECT = "no-effect";
     public JsonElement serialize(Npc npc, Type typeOfSrc, JsonSerializationContext context) {

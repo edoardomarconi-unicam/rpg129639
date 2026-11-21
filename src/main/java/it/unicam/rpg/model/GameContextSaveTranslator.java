@@ -23,8 +23,9 @@ public abstract class GameContextSaveTranslator {
         for(Npc npc : doneNpcs){
             allNpcs.remove(npc);
         }
-
-        return new Game(playerName, allNpcs, doneNpcs);
+        Game game = new Game(playerName, allNpcs, doneNpcs);
+        game.getUser().setParameters(parameters);
+        return game;
 
     }
 }
