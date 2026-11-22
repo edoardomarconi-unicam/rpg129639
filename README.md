@@ -15,7 +15,7 @@ Il titolo e l'idea nascono dall'iniziativa "La strada non è casa" di *Missio
 
 ```
 git clone https://github.com/edoardomarconi-unicam/rpg129639.git
-cd rpg-metodologie
+cd rpg129639
 ```
 
 ### **Build del progetto**
