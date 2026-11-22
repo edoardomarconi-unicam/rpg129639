@@ -57,7 +57,7 @@ public class Game {
                 };
             }
 
-            //elimino l'attuale carta dalla Map
+            //elimino l'attuale carta dalla List
             doneNpcs.add(npcs.getFirst());
             npcs.removeFirst();
 

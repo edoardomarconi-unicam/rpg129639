@@ -11,9 +11,11 @@ import java.util.Map;
 
 public class ChoiceEffectApplicator {
     private Difficulty difficulty;
+
     public ChoiceEffectApplicator(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
+
     public boolean application(User user, Npc npc, Direction direction) {
         if (npc instanceof NpcWithEffect) {
             if (direction == Direction.LEFT) {

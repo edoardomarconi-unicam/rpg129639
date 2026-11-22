@@ -1,6 +1,5 @@
 package it.unicam.rpg.view.mainMenu;
 
-import it.unicam.rpg.model.GameObserver;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -12,7 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 import java.util.List;
 
-public class MainMenuScene extends StackPane implements GameObserver {
+public class MainMenuScene extends StackPane{
     private Runnable onContinueGame = () -> {};
     private Runnable onNewGame = () -> {};
     private Runnable onSettings = () -> {};

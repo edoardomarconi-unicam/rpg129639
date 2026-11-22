@@ -11,7 +11,7 @@ public enum ParameterType {
 
 
 
-    //afterOrBeforeLossValue indica che non bisogna superarlo se true, altrimenti indica che non bisogna essere sotto
+    //afterLossValue indica che non bisogna superarlo se true, altrimenti indica che non bisogna essere sotto
     private final String description;
     private final int lossValue;
     private final boolean afterLossValue;

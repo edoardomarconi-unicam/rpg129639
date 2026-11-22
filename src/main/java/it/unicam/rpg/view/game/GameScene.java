@@ -70,7 +70,7 @@ public class GameScene extends StackPane implements GameObserver {
         });
     }
 
-    //metodo di supporto per creare PrograssBar dei parametri
+    //metodo di supporto per creare ProgressBar dei parametri
     private VBox creaIndicatore(ParameterType type, String nome, double valore) {
         ProgressBar bar = new ProgressBar(valore / 100); //ProgressBar considera valori tra 0.0 e 1.0
         bar.setMaxWidth(Double.MAX_VALUE);              // la barra riempie la VBox
@@ -103,7 +103,7 @@ public class GameScene extends StackPane implements GameObserver {
 
     public void setCenter(Npc npc){
 
-        //StackPane for card+label
+        //StackPane per card+label
         StackPane cardLabel = new StackPane();
         cardLabel.setAlignment(Pos.CENTER);
 
@@ -132,7 +132,7 @@ public class GameScene extends StackPane implements GameObserver {
         cardLabelButtons.setSpacing(20);
         VBox.setVgrow(cardLabel, Priority.ALWAYS);
 
-        //choose buttons
+        //buttons di scelta
         npcLeftAnswer = npc.getLeft().getLabel();
         npcRightAnswer = npc.getRight().getLabel();
         Button leftButton =  new Button(npcLeftAnswer);
