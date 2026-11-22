@@ -23,12 +23,14 @@ public enum ParameterType {
         this.afterLossValue = afterLossValue;
     }
 
-    public String getDescription() {return this.description;}
-
     public boolean lossValueReached(int lossValue){
         if(this.afterLossValue)
             return lossValue >= this.lossValue;
         else
             return lossValue <= this.lossValue;
+    }
+
+    public String getDescription(){
+        return "Partita terminata perche il valore " + description + " ha raggiunto il massimo di sopportazione";
     }
 }

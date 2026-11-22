@@ -4,9 +4,9 @@ import it.unicam.rpg.model.Direction;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameObserver;
 import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.model.data.SettingsLoaderSaver;
+import it.unicam.rpg.data.SettingsLoaderSaver;
 import it.unicam.rpg.view.*;
-import javafx.scene.Scene;
+import it.unicam.rpg.view.gameOver.GameOverScreen;
 
 public class GameController implements GameObserver {
     private GameScene gameScene;

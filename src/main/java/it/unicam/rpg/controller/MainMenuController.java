@@ -4,9 +4,8 @@ import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameContextSave;
 import it.unicam.rpg.model.GameContextSaveTranslator;
 import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.model.data.GameSaverReader;
+import it.unicam.rpg.data.GameSaverReader;
 import it.unicam.rpg.view.*;
-import javafx.scene.Scene;
 
 public class MainMenuController {
     private GameSaverReader gameSaverReader;
@@ -35,7 +34,7 @@ public class MainMenuController {
         });
 
         mainMenuScene.setOnSettings(() -> {
-            viewNavigator.NavigateTo(new SettingsScreen(new MainMenuScreen()));
+            viewNavigator.NavigateTo(new SettingsScreen());
         });
     }
 }

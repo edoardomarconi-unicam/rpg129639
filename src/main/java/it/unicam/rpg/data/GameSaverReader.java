@@ -1,4 +1,4 @@
-package it.unicam.rpg.model.data;
+package it.unicam.rpg.data;
 
 import com.google.gson.*;
 import it.unicam.rpg.model.GameContextSave;

@@ -1,7 +1,7 @@
 package it.unicam.rpg.view;
 
 import it.unicam.rpg.model.Difficulty;
-import it.unicam.rpg.model.data.SettingsLoaderSaver;
+import it.unicam.rpg.data.SettingsLoaderSaver;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;

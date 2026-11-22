@@ -9,6 +9,12 @@ javafx {
     modules("javafx.controls", "javafx.fxml")
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
 application {
     mainClass.set("it.unicam.rpg.App")
 }

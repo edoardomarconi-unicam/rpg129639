@@ -1,8 +1,6 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.gameOver;
 
-import it.unicam.rpg.model.GameObserver;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -26,6 +24,7 @@ public class GameOverScene extends StackPane{
     private void setLayout(){
         VBox root = new VBox();
         root.setAlignment(Pos.CENTER);
+        root.setSpacing(30);
         gameOverReason.setWrapText(true);
         gameOverReason.setTextFill(Color.WHITE);
         root.getChildren().add(gameOverReason);

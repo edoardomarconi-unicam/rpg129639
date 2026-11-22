@@ -16,4 +16,7 @@ public enum Difficulty {
     public int apply(int npcEffect){
         return (int) Math.round(npcEffect * multiplier);
     }
+
+    //usato dalla ComboBox in SettingsView
+    public String toString() {return label;}
 }

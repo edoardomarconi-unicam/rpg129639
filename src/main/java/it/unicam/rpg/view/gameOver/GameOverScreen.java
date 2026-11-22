@@ -1,9 +1,10 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.gameOver;
 
 import it.unicam.rpg.controller.GameOverController;
 import it.unicam.rpg.model.ViewNavigator;
+import it.unicam.rpg.view.Screen;
 
-public class GameOverScreen extends Screen<GameOverScene>{
+public class GameOverScreen extends Screen<GameOverScene> {
     String gameOverMessage;
 
     public GameOverScreen(String gameOverMessage){

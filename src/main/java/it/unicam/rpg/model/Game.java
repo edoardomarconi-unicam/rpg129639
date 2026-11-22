@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import it.unicam.rpg.model.data.CardLoader;
-import it.unicam.rpg.model.data.SettingsLoaderSaver;
+import it.unicam.rpg.data.CardLoader;
+import it.unicam.rpg.data.SettingsLoaderSaver;
 import it.unicam.rpg.model.players.*;
-//TODO finire implementazione Game, sistemare la sezione del game over
-//TODO ricordati di rimettere la lista degli npcs nuovamente privata una volta finito con le prove
+
 public class Game {
     private List<GameObserver> observers = new ArrayList<GameObserver>();
     private ChoiceEffectApplicator effectApplicator = new ChoiceEffectApplicator(new SettingsLoaderSaver().load().getDifficulty());
@@ -51,7 +50,7 @@ public class Game {
             //verifico il gameOver per raggiungimento valori limite parametri
             for(Map.Entry<ParameterType, Integer> entry : userParameters.entrySet()) {
                 if(entry.getKey().lossValueReached(entry.getValue())) {
-                    observers.iterator().forEachRemaining(observer -> {observer.gameOver(entry.getKey().toString());});
+                    observers.iterator().forEachRemaining(observer -> {observer.gameOver(entry.getKey().getDescription());});
                 };
             }
 

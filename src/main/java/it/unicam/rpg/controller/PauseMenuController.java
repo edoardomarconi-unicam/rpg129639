@@ -4,7 +4,7 @@ import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameContextSave;
 import it.unicam.rpg.model.GameContextSaveTranslator;
 import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.model.data.GameSaverReader;
+import it.unicam.rpg.data.GameSaverReader;
 import it.unicam.rpg.view.*;
 
 public class PauseMenuController {
@@ -33,7 +33,7 @@ public class PauseMenuController {
         });
 
         pauseMenuView.setOnSettings(() -> {
-            viewNavigator.NavigateTo(new SettingsScreen(new GameScreen(game)));
+            viewNavigator.NavigateTo(new SettingsScreen());
         });
     }
 }

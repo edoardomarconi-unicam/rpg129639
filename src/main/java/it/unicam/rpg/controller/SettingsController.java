@@ -2,26 +2,23 @@ package it.unicam.rpg.controller;
 
 import it.unicam.rpg.model.Settings;
 import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.model.data.GameSaverReader;
-import it.unicam.rpg.model.data.SettingsLoaderSaver;
-import it.unicam.rpg.view.Screen;
+import it.unicam.rpg.data.GameSaverReader;
+import it.unicam.rpg.data.SettingsLoaderSaver;
 import it.unicam.rpg.view.SettingsView;
 
 public class SettingsController{
     SettingsView settingsView;
     ViewNavigator viewNavigator;
-    Screen<?> previusScreen;
 
-    public SettingsController(SettingsView settingsView, ViewNavigator viewNavigator, Screen<?> previusScreen) {
+    public SettingsController(SettingsView settingsView, ViewNavigator viewNavigator) {
         this.settingsView = settingsView;
         this.viewNavigator = viewNavigator;
-        this.previusScreen = previusScreen;
-        settingsButtonsActions(this.previusScreen);
+        settingsButtonsActions();
     }
 
-    public void settingsButtonsActions(Screen<?> previusScreen) {
+    public void settingsButtonsActions() {
         settingsView.setOnBack(() -> {
-            viewNavigator.NavigateTo(previusScreen);
+            viewNavigator.goBack();
         });
 
         settingsView.setOnDifficultyChanged((difficulty) -> {
