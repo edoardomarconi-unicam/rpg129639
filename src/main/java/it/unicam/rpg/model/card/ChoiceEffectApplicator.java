@@ -1,5 +1,7 @@
-package it.unicam.rpg.model;
+package it.unicam.rpg.model.card;
 
+import it.unicam.rpg.model.settings.Difficulty;
+import it.unicam.rpg.model.Direction;
 import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.NpcWithEffect;
 import it.unicam.rpg.model.players.User;

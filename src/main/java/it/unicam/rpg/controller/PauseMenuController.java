@@ -1,11 +1,13 @@
 package it.unicam.rpg.controller;
 
 import it.unicam.rpg.model.Game;
-import it.unicam.rpg.model.GameContextSave;
-import it.unicam.rpg.model.GameContextSaveTranslator;
-import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.data.GameSaverReader;
-import it.unicam.rpg.view.*;
+import it.unicam.rpg.persistence.GameContextSave;
+import it.unicam.rpg.persistence.GameContextSaveTranslator;
+import it.unicam.rpg.view.ViewNavigator;
+import it.unicam.rpg.persistence.GameSaverReader;
+import it.unicam.rpg.view.mainMenu.MainMenuScreen;
+import it.unicam.rpg.view.pauseMenu.PauseMenuView;
+import it.unicam.rpg.view.settings.SettingsScreen;
 
 public class PauseMenuController {
     private PauseMenuView pauseMenuView;

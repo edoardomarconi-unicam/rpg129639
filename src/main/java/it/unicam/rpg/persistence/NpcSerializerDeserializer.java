@@ -1,4 +1,4 @@
-package it.unicam.rpg.data;
+package it.unicam.rpg.persistence;
 
 import com.google.gson.*;
 import it.unicam.rpg.model.players.Npc;

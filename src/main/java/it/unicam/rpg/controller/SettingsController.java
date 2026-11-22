@@ -1,9 +1,9 @@
 package it.unicam.rpg.controller;
 
-import it.unicam.rpg.model.Settings;
-import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.data.GameSaverReader;
-import it.unicam.rpg.data.SettingsLoaderSaver;
+import it.unicam.rpg.model.settings.Settings;
+import it.unicam.rpg.view.ViewNavigator;
+import it.unicam.rpg.persistence.GameSaverReader;
+import it.unicam.rpg.persistence.SettingsLoaderSaver;
 import it.unicam.rpg.view.SettingsView;
 
 public class SettingsController{

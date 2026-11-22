@@ -1,15 +1,11 @@
 package it.unicam.rpg;
 
-import it.unicam.rpg.controller.MainMenuController;
-import it.unicam.rpg.model.Game;
-import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.model.players.User;
+import it.unicam.rpg.view.ViewNavigator;
+import it.unicam.rpg.view.mainMenu.MainMenuScreen;
 import javafx.application.Application;
 import javafx.scene.*;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import it.unicam.rpg.view.*;
 
 public class App extends Application {
     //TODO sistemare la logica di init gioco con schermata iniziale e selzione partite

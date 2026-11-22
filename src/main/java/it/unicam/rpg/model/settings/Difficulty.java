@@ -1,4 +1,4 @@
-package it.unicam.rpg.model;
+package it.unicam.rpg.model.settings;
 
 public enum Difficulty {
     EASY ("Facile", 1.0),

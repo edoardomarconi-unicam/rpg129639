@@ -1,4 +1,4 @@
-package it.unicam.rpg.model;
+package it.unicam.rpg.model.card;
 
 import com.google.gson.annotations.SerializedName;
 

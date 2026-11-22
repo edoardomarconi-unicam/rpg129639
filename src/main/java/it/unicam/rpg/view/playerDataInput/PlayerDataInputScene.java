@@ -1,4 +1,4 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.playerDataInput;
 
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;

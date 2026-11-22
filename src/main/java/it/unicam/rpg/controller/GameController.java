@@ -3,10 +3,11 @@ package it.unicam.rpg.controller;
 import it.unicam.rpg.model.Direction;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameObserver;
-import it.unicam.rpg.model.ViewNavigator;
-import it.unicam.rpg.data.SettingsLoaderSaver;
-import it.unicam.rpg.view.*;
+import it.unicam.rpg.view.ViewNavigator;
+import it.unicam.rpg.persistence.SettingsLoaderSaver;
+import it.unicam.rpg.view.game.GameScene;
 import it.unicam.rpg.view.gameOver.GameOverScreen;
+import it.unicam.rpg.view.pauseMenu.PauseMenuScreen;
 
 public class GameController implements GameObserver {
     private GameScene gameScene;

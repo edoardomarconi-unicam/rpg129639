@@ -1,6 +1,6 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.settings;
 
-import it.unicam.rpg.model.ViewNavigator;
+import it.unicam.rpg.view.ViewNavigator;
 import javafx.scene.Parent;
 
 public abstract class Screen <K extends Parent>{

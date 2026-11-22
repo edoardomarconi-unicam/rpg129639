@@ -1,10 +1,8 @@
 package it.unicam.rpg.model.players;
 
-import it.unicam.rpg.model.ParameterType;
+import it.unicam.rpg.model.card.ParameterType;
 
-import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
 
 public class Parameters {

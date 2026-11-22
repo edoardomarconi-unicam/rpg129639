@@ -1,4 +1,4 @@
-package it.unicam.rpg.model;
+package it.unicam.rpg.model.settings;
 
 public class Settings {
     private Difficulty difficulty = Difficulty.NORMAL;

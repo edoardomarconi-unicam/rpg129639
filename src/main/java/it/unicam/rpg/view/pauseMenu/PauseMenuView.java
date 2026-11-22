@@ -1,4 +1,4 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.pauseMenu;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

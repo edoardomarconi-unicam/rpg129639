@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import it.unicam.rpg.data.CardLoader;
-import it.unicam.rpg.data.SettingsLoaderSaver;
+import it.unicam.rpg.model.card.ChoiceEffectApplicator;
+import it.unicam.rpg.model.card.ParameterType;
+import it.unicam.rpg.model.settings.Difficulty;
+import it.unicam.rpg.persistence.CardLoader;
+import it.unicam.rpg.persistence.SettingsLoaderSaver;
 import it.unicam.rpg.model.players.*;
 
 public class Game {

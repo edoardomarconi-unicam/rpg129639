@@ -1,6 +1,6 @@
 package it.unicam.rpg.model.players;
 
-import it.unicam.rpg.model.Choice;
+import it.unicam.rpg.model.card.Choice;
 
 import java.io.Serializable;
 import java.util.Objects;

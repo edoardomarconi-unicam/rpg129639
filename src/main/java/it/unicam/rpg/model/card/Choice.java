@@ -1,4 +1,4 @@
-package it.unicam.rpg.model;
+package it.unicam.rpg.model.card;
 
 import java.util.Map;
 import java.util.Objects;

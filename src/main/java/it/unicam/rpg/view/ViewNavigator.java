@@ -1,6 +1,6 @@
-package it.unicam.rpg.model;
+package it.unicam.rpg.view;
 
-import it.unicam.rpg.view.Screen;
+import it.unicam.rpg.view.settings.Screen;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 

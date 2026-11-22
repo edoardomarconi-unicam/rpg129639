@@ -1,6 +1,6 @@
 package it.unicam.rpg.model.players;
 
-import it.unicam.rpg.model.ParameterType;
+import it.unicam.rpg.model.card.ParameterType;
 
 public class User extends Player {
     private Parameters parameters;

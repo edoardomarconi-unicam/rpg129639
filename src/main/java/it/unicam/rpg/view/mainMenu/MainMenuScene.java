@@ -1,4 +1,4 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.mainMenu;
 
 import it.unicam.rpg.model.GameObserver;
 import javafx.beans.binding.Bindings;

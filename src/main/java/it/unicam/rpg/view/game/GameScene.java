@@ -1,16 +1,14 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.game;
 
-import com.sun.glass.ui.View;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.GameObserver;
-import it.unicam.rpg.model.ParameterType;
-import it.unicam.rpg.model.ViewNavigator;
+import it.unicam.rpg.model.card.ParameterType;
 import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.User;
+import it.unicam.rpg.view.pauseMenu.PauseMenuView;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;

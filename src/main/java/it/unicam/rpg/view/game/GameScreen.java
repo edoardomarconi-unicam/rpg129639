@@ -1,10 +1,11 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.game;
 
 import it.unicam.rpg.controller.GameController;
 import it.unicam.rpg.model.Game;
-import it.unicam.rpg.model.ViewNavigator;
+import it.unicam.rpg.view.ViewNavigator;
+import it.unicam.rpg.view.settings.Screen;
 
-public class GameScreen extends Screen <GameScene>{
+public class GameScreen extends Screen<GameScene> {
     private Game game;
 
     public GameScreen(Game game) {

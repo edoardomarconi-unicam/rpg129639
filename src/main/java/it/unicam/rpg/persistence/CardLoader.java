@@ -1,4 +1,4 @@
-package it.unicam.rpg.data;
+package it.unicam.rpg.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

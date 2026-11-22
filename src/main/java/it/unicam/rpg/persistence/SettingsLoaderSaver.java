@@ -1,16 +1,13 @@
-package it.unicam.rpg.data;
+package it.unicam.rpg.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
-import com.google.gson.reflect.TypeToken;
-import it.unicam.rpg.model.Settings;
-import it.unicam.rpg.model.players.Npc;
+import it.unicam.rpg.model.settings.Settings;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 
 public class SettingsLoaderSaver {
     //cartella separata da "saves" perchè almeno cancellando i salvataggi le impostazioni restano

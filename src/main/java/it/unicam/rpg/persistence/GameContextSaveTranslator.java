@@ -1,6 +1,6 @@
-package it.unicam.rpg.model;
+package it.unicam.rpg.persistence;
 
-import it.unicam.rpg.data.CardLoader;
+import it.unicam.rpg.model.Game;
 import it.unicam.rpg.model.players.Npc;
 import it.unicam.rpg.model.players.Parameters;
 
