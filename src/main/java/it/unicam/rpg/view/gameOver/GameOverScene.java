@@ -8,7 +8,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-//TODO sistemare responsiveness del pannello
 public class GameOverScene extends StackPane{
     Label gameOverReason;
     Button goToMainMenuButton = new Button("Menù principale");

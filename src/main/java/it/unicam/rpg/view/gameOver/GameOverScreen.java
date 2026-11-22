@@ -2,7 +2,7 @@ package it.unicam.rpg.view.gameOver;
 
 import it.unicam.rpg.controller.GameOverController;
 import it.unicam.rpg.view.ViewNavigator;
-import it.unicam.rpg.view.settings.Screen;
+import it.unicam.rpg.view.Screen;
 
 public class GameOverScreen extends Screen<GameOverScene> {
     String gameOverMessage;

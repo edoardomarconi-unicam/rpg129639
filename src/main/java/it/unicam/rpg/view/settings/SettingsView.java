@@ -1,4 +1,4 @@
-package it.unicam.rpg.view;
+package it.unicam.rpg.view.settings;
 
 import it.unicam.rpg.model.settings.Difficulty;
 import it.unicam.rpg.persistence.SettingsLoaderSaver;

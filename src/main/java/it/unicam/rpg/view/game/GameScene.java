@@ -21,7 +21,6 @@ import javafx.scene.text.TextAlignment;
 
 import java.util.EnumMap;
 import java.util.Map;
-//TODO classe troppo lunga, sistemare
 public class GameScene extends StackPane implements GameObserver {
     private final double HORIZONTAL_SPACING = 30;
     User user;

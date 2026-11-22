@@ -3,7 +3,7 @@ package it.unicam.rpg.view.pauseMenu;
 import it.unicam.rpg.controller.PauseMenuController;
 import it.unicam.rpg.model.Game;
 import it.unicam.rpg.view.ViewNavigator;
-import it.unicam.rpg.view.settings.Screen;
+import it.unicam.rpg.view.Screen;
 
 public class PauseMenuScreen extends Screen<PauseMenuView> {
     Game game;

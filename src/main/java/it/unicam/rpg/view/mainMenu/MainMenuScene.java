@@ -25,7 +25,6 @@ public class MainMenuScene extends StackPane implements GameObserver {
         setMainMenuLayout();
     }
 
-    //TODO controlla come viene impostato il layout
     private void setMainMenuLayout(){
         //titolo del gioco
         Label title = new Label("La strada non è casa");

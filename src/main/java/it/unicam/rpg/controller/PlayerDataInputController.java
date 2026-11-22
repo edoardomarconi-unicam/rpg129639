@@ -6,7 +6,6 @@ import it.unicam.rpg.view.game.GameScreen;
 import it.unicam.rpg.view.mainMenu.MainMenuScreen;
 import it.unicam.rpg.view.playerDataInput.PlayerDataInputScene;
 
-//TODO sistemare navigazioni
 public class PlayerDataInputController {
     private PlayerDataInputScene playerDataInputScene;
     private ViewNavigator viewNavigator;

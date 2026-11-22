@@ -8,7 +8,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class App extends Application {
-    //TODO sistemare la logica di init gioco con schermata iniziale e selzione partite
     @Override
     public void init(){
     }

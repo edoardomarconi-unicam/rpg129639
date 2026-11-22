@@ -1,6 +1,5 @@
 package it.unicam.rpg.view;
 
-import it.unicam.rpg.view.settings.Screen;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 

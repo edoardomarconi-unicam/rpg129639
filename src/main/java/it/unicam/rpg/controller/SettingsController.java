@@ -4,7 +4,7 @@ import it.unicam.rpg.model.settings.Settings;
 import it.unicam.rpg.view.ViewNavigator;
 import it.unicam.rpg.persistence.GameSaverReader;
 import it.unicam.rpg.persistence.SettingsLoaderSaver;
-import it.unicam.rpg.view.SettingsView;
+import it.unicam.rpg.view.settings.SettingsView;
 
 public class SettingsController{
     SettingsView settingsView;
