@@ -1,0 +1,25 @@
+package it.unicam.cs.mpgc.rpg129639.persistence;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import it.unicam.cs.mpgc.rpg129639.model.players.Npc;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+
+public class CardLoader {
+    private static final Gson GSON_BUILDER = new GsonBuilder().registerTypeAdapter(Npc.class, new NpcSerializerDeserializer())
+                                                    .setPrettyPrinting()
+                                                    .create();
+    public static final Gson gson = new Gson();
+    public static List<Npc> LoadNpcs() {
+        InputStream inputStreamFromCardsFile = CardLoader.class.getResourceAsStream("/data/cards.json");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamFromCardsFile));
+
+        List<Npc> npc = GSON_BUILDER.fromJson(reader, new TypeToken<List<Npc>>() {}.getType());
+        return npc;
+    }
+}

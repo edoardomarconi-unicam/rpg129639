@@ -1,0 +1,50 @@
+package it.unicam.cs.mpgc.rpg129639.persistence;
+
+import com.google.gson.*;
+import it.unicam.cs.mpgc.rpg129639.model.players.Npc;
+import it.unicam.cs.mpgc.rpg129639.model.players.NpcWithEffect;
+import it.unicam.cs.mpgc.rpg129639.model.players.NpcWithNoEffect;
+
+import java.lang.reflect.Type;
+
+public class NpcSerializerDeserializer implements JsonDeserializer<Npc>, JsonSerializer<Npc>{
+    private static final String WITH_EFFECT = "with-effect";
+    private static final String NO_EFFECT = "no-effect";
+    public JsonElement serialize(Npc npc, Type typeOfSrc, JsonSerializationContext context) {
+        JsonObject jsonObject = context.serialize(npc, npc.getClass()).getAsJsonObject();
+
+        String type;
+        if(npc instanceof NpcWithEffect){
+            type = WITH_EFFECT;
+        }else if(npc instanceof NpcWithNoEffect){
+            type = NO_EFFECT;
+        }else throw new JsonParseException("NPC type unknown");
+
+        jsonObject.addProperty("type", type);
+
+        return jsonObject;
+    }
+
+    @Override
+    public Npc deserialize(JsonElement npc, Type typeOfSrc, JsonDeserializationContext context) throws JsonParseException {
+        JsonObject jsonObject = npc.getAsJsonObject();
+
+        JsonElement typeElement = jsonObject.get("type");
+
+        if(typeElement == null) {
+            throw new JsonParseException("NPC non assegnato ad alcuna tipologia");
+        }
+
+        String type = typeElement.getAsString();
+
+        switch (type) {
+            case "with-effect":
+                return context.deserialize(npc, NpcWithEffect.class);
+            case "no-effect":
+                return context.deserialize(npc, NpcWithNoEffect.class);
+            default:
+                throw new JsonParseException("Tipologia di NPC non riconosciuta");
+        }
+
+    }
+}

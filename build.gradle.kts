@@ -16,10 +16,10 @@ java {
 }
 
 application {
-    mainClass.set("it.unicam.rpg.App")
+    mainClass.set("it.unicam.cs.mpgc.rpg129639.App")
 }
 
-group = "org.example"
+group = "it.unicam.cs.mpgc"
 version = "1.0-SNAPSHOT"
 
 repositories {
