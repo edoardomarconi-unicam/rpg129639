@@ -17,12 +17,8 @@ public abstract class GameContextSaveTranslator {
         String playerName = saving.getPlayerName();
         Parameters parameters = saving.getParameters();
         List<Npc> doneNpcs = saving.getDoneNpcs();
-        List<Npc> allNpcs = CardLoader.LoadNpcs();
+        List<Npc> allNpcs = saving.getNpcsInOrder();
 
-        //rimuovo dalla lista di tutte le carte, quelle già fatte
-        for(Npc npc : doneNpcs){
-            allNpcs.remove(npc);
-        }
         Game game = new Game(playerName, allNpcs, doneNpcs);
         game.getUser().setParameters(parameters);
         return game;

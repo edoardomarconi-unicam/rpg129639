@@ -1,6 +1,7 @@
 package it.unicam.rpg.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -21,15 +22,19 @@ public class Game {
     public Game(User user){
         this.user = user;
         npcs = CardLoader.LoadNpcs();
+        Collections.shuffle(npcs);
         doneNpcs = new ArrayList<>();
     }
 
+    //costruttore di una nuova partita
     public Game(String playerName){
         user = new User(playerName, "Player");
         npcs = CardLoader.LoadNpcs();
+        Collections.shuffle(npcs);
         doneNpcs = new ArrayList<>();
     }
 
+    //costruttore di una partita caricata da salvataggio
     public Game(String playerName, List<Npc> npcs,  List<Npc> doneNpcs){
         user = new User(playerName, "Player");
         this.npcs = npcs;

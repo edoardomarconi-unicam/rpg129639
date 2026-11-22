@@ -72,13 +72,14 @@ public class GameScene extends StackPane implements GameObserver {
 
     //metodo di supporto per creare ProgressBar dei parametri
     private VBox creaIndicatore(ParameterType type, String nome, double valore) {
-        ProgressBar bar = new ProgressBar(valore / 100); //ProgressBar considera valori tra 0.0 e 1.0
-        bar.setMaxWidth(Double.MAX_VALUE);              // la barra riempie la VBox
+        //ProgressBar considera valori tra 0.0 e 1.0
+        ProgressBar bar = new ProgressBar(valore / 100);
+        bar.setMaxWidth(Double.MAX_VALUE);
         progressBars.put(type, bar);
 
-        VBox box = new VBox(5, new Label(nome), bar); //inserisco l'oggetto bar perchè è lo stesso oggetto che ho
-        box.setAlignment(Pos.CENTER);                           //collegato alla Map progressBar, quindi bar == progressBar.get(type)
-        HBox.setHgrow(box, Priority.ALWAYS);            // la VBox si divide lo spazio dell'HBox
+        VBox box = new VBox(5, new Label(nome), bar);
+        box.setAlignment(Pos.CENTER);
+        HBox.setHgrow(box, Priority.ALWAYS);
         return box;
     }
 
